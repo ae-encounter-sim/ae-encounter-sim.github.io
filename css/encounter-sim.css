@@ -1,0 +1,76 @@
+img.character {
+  width: 148px;
+  height: 300px;
+  object-fit: cover;
+  object-position: left top;
+}
+div.img-wrap {
+  width: 148px;
+  height: 300px;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  width: 148px;
+  background: rgba(46, 22, 21, 0.75);
+  text-align: center;
+  font-size: 24px;
+  color: #D1CB89;
+}
+.name-overlay {
+  height: 40px;
+  line-height: 40px;
+  bottom: 30px;
+  left: 0;
+}
+.rarity-overlay {
+  height: 30px;
+  line-height: 30px;
+  bottom: 0;
+  left: 0;
+}
+.star, .gem {
+  width: 25px;
+  height: 25px;
+}
+.banner-select {
+  width: 316px;
+  height: 122px;
+}
+#banner-img {
+  max-width: 600px;
+}
+#rateup-chars > img {
+  width: 80px;
+}
+h4 {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+#container {
+  min-height: 80vh;
+}
+#loading-images {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+a.banner-select.lokido-as {
+  background: url("../images/banners/91010.combo.png") 0 0 no-repeat;
+}
+a.banner-select.manifest-weapon {
+  background: url("../images/banners/91011.combo.png") 0 0 no-repeat;
+}
+a.banner-select.first-anny {
+  background: url("../images/banners/91013.combo.png") 0 0 no-repeat;
+}
+a.banner-select.lovely {
+  background: url("../images/banners/91009.combo.png") 0 0 no-repeat;
+}
+a.banner-select.dunarith {
+  background: url("../images/banners/91003.combo.png") 0 0 no-repeat;
+}
+a.banner-select:hover {
+  background-position: 0 -122px;
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Simulate gacha encounters for the mobile game, Another Eden">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/litera/bootstrap.min.css" integrity="sha256-vbXIi7CL5y/ovgSMLYzWxaKXDcpUaaOPtzcZpH1J6p4=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+  <link href="css/encounter-sim.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4582ec">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#4582ec">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
+    <div class="container">
+      <a class="navbar-brand" href="https://ae-encounter-sim.github.io">Another Eden Encounter Sim</a>
+    </div>
+  </nav>
+  <div id="container" class="container py-2">
+    <div id="loading-images">
+
+    </div>
+    <div id="banner-options" class="row collapse show" data-parent="#container">
+      
+    </div>
+    
+    <div id="encounter-info" class="row collapse" data-parent="#container">
+      <div class="col">
+        <a id="back-to-banners" href="#" data-toggle="collapse" data-target="#banner-options">&lt; Back to banners</a>
+        <h2 id="banner-name">Banner Name</h2>
+        <div class="row">
+          <div class="col">
+            <img id="banner-img">
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <a href="#" id="official-rates" class="btn btn-secondary btn-block mb-3" target="_blank">Official Encounter Rates <i class="fas fa-external-link-alt"></i></a>
+                <h4>Rate Up</h4>
+                <div id="rateup-chars"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col">
+            <button id="enc-one" type="button" class="btn btn-info" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+            <button id="enc-ten" type="button" class="btn btn-warning" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col" id="results-header">
+        
+      </div>
+    </div>
+    <div class="row" id="encounter-results-row-1">
+      <!-- <div class="col">༼ つ ◕_◕ ༽つ SUMMON HISUMENA ༼ つ ◕_◕ ༽つ</div> -->
+    </div>
+    <div class="row" id="encounter-results-row-2">
+    </div>
+  </div>
+  <footer class="bg-light py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h6 class="d-none d-md-block">Another Eden Info</h6>
+          <ul class="list-unstyled">
+            <li class="mb-1"><a href="//anothereden.miraheze.org/wiki/Another_Eden_Wiki">Wiki</a></li>
+            <li class="mb-1"><a href="//www.reddit.com/r/AnotherEdenGlobal"><i class="fab fa-reddit-alien"></i> Reddit</a></li>
+            <li class="mb-1"><a href="//discordapp.com/invite/Y7pHyvC"><i class="fab fa-discord"></i> Discord</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="d-none d-md-block">Simulator Info</h6>
+          <ul class="list-unstyled">
+            <li class="mb-1"><a href="//www.reddit.com/r/AnotherEdenGlobal" target="_blank"><i class="fab fa-reddit-alien"></i> Reddit post</a></li>
+            <li class="mb-1"><a href="//github.com/ae-encounter-sim/ae-encounter-sim.github.io" target="_blank"><i class="fab fa-github"></i> Github repo</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h6 class="d-none d-md-block">Legal</h6>
+          <div><small>All encounters, images, and characters copyright &copy; WFS</small></div>
+          <div><small>This website is not affiliated with WFS in any way</small></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/binarysearch.js"></script>
+  <script>
+    function createStars(rarity, maxRarity, isAS) {
+        if (isAS) {
+            let starAS = $("<img>").attr("src", "images/style.png").addClass("star");
+            return [starAS, starAS.clone(), starAS.clone(), starAS.clone(), starAS.clone()];
+        } else {
+            let starOn = $("<img>").attr("src", "images/on.png").addClass("star");
+            let starArray = [];
+            for (let i = 0; i < rarity; i++) {
+                starArray.push(starOn.clone());
+            }
+            if (rarity < maxRarity) {
+                starArray.push($("<img>").attr("src", "images/off.png").addClass("star"));
+            }
+            return starArray;
+        }
+    }
+    function prepareImage(name, rarity, charImages) {
+        if (name in charImages) {
+            let charId = charImages[name]["id"];
+            let imgPath = "images/characters/party_portrait/" + charId + "/" + charId + charImages[name][String(rarity)] + ".png";
+            let divWrapper = $("<div></div>").addClass("img-wrap d-block mx-auto");
+
+            let divRarity = $("<div></div>").addClass("overlay rarity-overlay d-flex align-items-center justify-content-center").append(createStars(rarity, charImages[name]["max_rarity"], ("AS" in charImages[name])))
+            return divWrapper.append($("<img>").attr("src", imgPath).addClass("character")).append($("<span></span>").addClass("overlay name-overlay").html(name)).append(divRarity);
+        } else {
+            return $("<div>Character not found!</div>");
+        }
+    }
+    function pullUnit(encounter, loneOrTenth) {
+        let pull = Math.random();
+        return binarySearch(encounter["range_rows"][loneOrTenth], 0, encounter["range_rows"][loneOrTenth].length, pull);
+    }
+    function getRateUpImage(name, charImages) {
+        if (name in charImages) {
+            let charId = charImages[name]["id"];
+            let maxRarity = charImages[name]["max_rarity"];
+            let imgPath = "images/characters/command/" + charId + "/" + charId + charImages[name][maxRarity] + ".png";
+            return $("<img>").attr("src", imgPath).addClass("p-1");
+        } else {
+            return $("<div>Character not found!</div>");
+        }
+    }
+    function clearEncounterResults() {
+        $("#encounter-results-row-1").html("");
+        $("#encounter-results-row-2").html("");
+    }
+    function getEncounterButtonHtml(encType) {
+        if (encType == null) {
+            return '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+        } else {
+            let typeDict = { "one" : { "label" : "A Lone Encounter", "cost" : "100" }, "ten" : { "label" : "10 Allies Bundle", "cost" : "1,000" } };
+            let label = '<div class="d-flex">' + typeDict[encType]["label"] + '</div>';
+            let gems = '<div class="d-flex"><img src="images/gem.png" class="gem"> ' + typeDict[encType]["cost"] + '</div>';
+            return label + gems;
+        }
+    }
+    function resetEncounter() {
+        $("#rateup-chars").html("");
+        $("#results-header").html("");
+        currentEnc = {};
+        $("#enc-one").prop("disabled", true).html(getEncounterButtonHtml(null));
+        $("#enc-ten").prop("disabled", true).html(getEncounterButtonHtml(null));
+        clearEncounterResults();
+    }
+
+    $( document ).ready(function() {
+        var currentEnc = {}
+        var charImages = {}
+
+        $.getJSON("character_images.json", function(images) {
+            $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Loading character image map...")).toast("show"));
+            charImages = images;
+            $("#container").trigger("imageMapLoaded");
+        });
+
+        $("#container").on("imageMapLoaded", function() {
+            $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Character image map load complete!")).toast("show"));
+        });
+
+        $.getJSON("encounter_banners.json", function(bannerList) {
+            $.each(bannerList, function(i, banner) {
+                let bannerClass = [banner["banner_short_name"], "banner-select", "d-block", "mx-auto"];
+                let bannerDiv = $("<div></div>").addClass("col py-1").append($("<a></a>").addClass(bannerClass).attr({ "href" : "#", "data-banner-file" : banner["banner_file"], "data-banner-img" : banner["banner_image"], "data-toggle" : "collapse", "data-target" : "#encounter-info", "data-banner-official" : banner["official_link"] }));
+                $("#banner-options").append(bannerDiv);
+            });
+        });
+
+        $("#banner-options").on("click", "a.banner-select", function(e) {
+            e.preventDefault();
+            let selectedBannerImg = "images/banners/" + $(this).attr("data-banner-img");
+            $("#banner-img").attr("src", selectedBannerImg);
+            $("#official-rates").attr("href", $(this).attr("data-banner-official"));
+            $("#results-header").html($("<h4></h4>").text("Encounter Results"));
+
+            let bannerToLoad = 'banners/' + $(this).attr("data-banner-file");
+            $.getJSON(bannerToLoad, function(encounter) {
+                $("#banner-name").html(encounter["name"]);
+                currentEnc = encounter;
+                $.each(encounter["rate_up"], function(i, character) {
+                    $("#rateup-chars").append(getRateUpImage(character, charImages));
+                });
+                $("#container").trigger("jsonLoaded");
+            });
+        });
+
+        $("#container").on("jsonLoaded", function() {
+            $("#enc-one").prop("disabled", false).html(getEncounterButtonHtml("one"));
+            $("#enc-ten").prop("disabled", false).html(getEncounterButtonHtml("ten"));
+        });
+
+        $("#back-to-banners").on("click", resetEncounter);
+
+        $("#enc-one").on("click", function(e) {
+            e.preventDefault();
+            clearEncounterResults();
+            $("#results-header > h4").text("A Lone Encounter");
+            let unit_pulled = pullUnit(currentEnc, "lone");
+            $("#encounter-results-row-1").html($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
+        });
+
+        $("#enc-ten").on("click", function(e) {
+            e.preventDefault();
+            clearEncounterResults();
+            $("#results-header > h4").text("10 Allies Bundle");
+            let unit_pulled = {};
+            for (let x = 0; x < 9; x++) {
+                unit_pulled = pullUnit(currentEnc, "lone");
+                resultRow = x < 5 ? $("#encounter-results-row-1") : $("#encounter-results-row-2");
+                resultRow.append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
+            }
+            unit_pulled = pullUnit(currentEnc, "tenth");
+            $("#encounter-results-row-2").append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
+        });
+    });
+ 
+  </script>
+</body>
+</html>
