@@ -54,6 +54,7 @@ h4 {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+  z-index: 999;
 }
 @media (min-width: 992px) {
   #banner-img { 
@@ -80,9 +81,6 @@ h4 {
     width: 1.5625rem;
     height: 1.5625rem;
   }
-}
-div.toast {
-  z-index: 999;
 }
 
 a.banner-select.lokido-as {
