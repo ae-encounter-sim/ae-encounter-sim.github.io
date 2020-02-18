@@ -89,7 +89,7 @@
         <div class="col-md-3">
           <h6 class="d-none d-md-block">Simulator Info</h6>
           <ul class="list-unstyled">
-            <li class="mb-1"><a href="//www.reddit.com/r/AnotherEdenGlobal" target="_blank"><i class="fab fa-reddit-alien"></i> Reddit post</a></li>
+            <li class="mb-1"><a href="//reddit.com/r/AnotherEdenGlobal/comments/f50oc4/another_encounter_simulator/" target="_blank"><i class="fab fa-reddit-alien"></i> Reddit post</a></li>
             <li class="mb-1"><a href="//github.com/ae-encounter-sim/ae-encounter-sim.github.io" target="_blank"><i class="fab fa-github"></i> Github repo</a></li>
           </ul>
         </div>
@@ -187,9 +187,12 @@
 
         $.getJSON("encounter_banners.json", function(bannerList) {
             $.each(bannerList, function(i, banner) {
-                let bannerClass = [banner["banner_short_name"], "banner-select", "d-block", "mx-auto"];
-                let bannerDiv = $("<div></div>").addClass("col py-1").append($("<a></a>").addClass(bannerClass).attr({ "href" : "#", "data-banner-file" : banner["banner_file"], "data-banner-img" : banner["banner_image"], "data-toggle" : "collapse", "data-target" : "#encounter-info", "data-banner-official" : banner["official_link"] }));
-                $("#banner-options").append(bannerDiv);
+                let bannerDate = new Date(banner["banner_enddatetime"]);
+                if (bannerDate > Date.now()) {
+                    let bannerClass = [banner["banner_short_name"], "banner-select", "d-block", "mx-auto"];
+                    let bannerDiv = $("<div></div>").addClass("col py-1").append($("<a></a>").addClass(bannerClass).attr({ "href" : "#", "data-banner-file" : banner["banner_file"], "data-banner-img" : banner["banner_image"], "data-toggle" : "collapse", "data-target" : "#encounter-info", "data-banner-official" : banner["official_link"] }));
+                    $("#banner-options").append(bannerDiv);
+                }
             });
         });
 
