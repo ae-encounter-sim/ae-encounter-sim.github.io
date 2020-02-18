@@ -170,6 +170,10 @@
         $("#enc-ten").prop("disabled", true).html(getEncounterButtonHtml(null));
         clearEncounterResults();
     }
+    function buildSelectorBanner(banner) {
+        let bannerClass = [banner["banner_short_name"], "banner-select", "d-block", "mx-auto"];
+        return $("<div></div>").addClass("col py-1").append($("<a></a>").addClass(bannerClass).attr({ "href" : "#", "data-banner-file" : banner["banner_file"], "data-banner-img" : banner["banner_image"], "data-toggle" : "collapse", "data-target" : "#encounter-info", "data-banner-official" : banner["official_link"] }));
+    }
 
     $( document ).ready(function() {
         var currentEnc = {}
@@ -186,13 +190,16 @@
         });
 
         $.getJSON("encounter_banners.json", function(bannerList) {
-            $.each(bannerList, function(i, banner) {
+            $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Limited")));
+            $.each(bannerList["limited"], function(i, banner) {
                 let bannerDate = new Date(banner["banner_enddatetime"]);
                 if (bannerDate > Date.now()) {
-                    let bannerClass = [banner["banner_short_name"], "banner-select", "d-block", "mx-auto"];
-                    let bannerDiv = $("<div></div>").addClass("col py-1").append($("<a></a>").addClass(bannerClass).attr({ "href" : "#", "data-banner-file" : banner["banner_file"], "data-banner-img" : banner["banner_image"], "data-toggle" : "collapse", "data-target" : "#encounter-info", "data-banner-official" : banner["official_link"] }));
-                    $("#banner-options").append(bannerDiv);
+                    $("#banner-options").append(buildSelectorBanner(banner));
                 }
+            });
+            $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Regular")));
+            $.each(bannerList["regular"], function(i, banner) {
+                $("#banner-options").append(buildSelectorBanner(banner));
             });
         });
 
