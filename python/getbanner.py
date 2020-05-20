@@ -101,9 +101,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/bd4016fb56dbca39b5e8422b1f4d2862?q=129301920766&language=en'
-    banner_name = 'Manifestation Weapon Discovery Isuka Myrus'
-    rate_up = ['Isuka','Myrus']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/8145da138c45c6cc6b04d02f4b8c3415?q=129301920766&language=en'
+    banner_name = 'Manifestation Weapon Discovery Anabel Shanie'
+    rate_up = ['Anabel','Shanie']
 
     scrape_html(url)
 
