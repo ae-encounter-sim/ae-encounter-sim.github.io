@@ -8,7 +8,7 @@
   <title>Another Eden Encounter Simulator</title>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/litera/bootstrap.min.css" integrity="sha256-vbXIi7CL5y/ovgSMLYzWxaKXDcpUaaOPtzcZpH1J6p4=" crossorigin="anonymous" />
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
-  <link href="css/encounter-sim.css?v=k8S3VIk0zw" rel="stylesheet">
+  <link href="css/encounter-sim.css?v=x5dV2Bg0V9" rel="stylesheet">
   
   <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -179,7 +179,7 @@
         var currentEnc = {}
         var charImages = {}
 
-        $.getJSON("character_images.json?v=k8S3VIk0zw", function(images) {
+        $.getJSON("character_images.json?v=x5dV2Bg0V9", function(images) {
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Loading character image map...")).toast("show"));
             charImages = images;
             $("#container").trigger("imageMapLoaded");
@@ -189,7 +189,7 @@
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Character image map load complete!")).toast("show"));
         });
 
-        $.getJSON("encounter_banners.json?v=k8S3VIk0zw", function(bannerList) {
+        $.getJSON("encounter_banners.json?v=x5dV2Bg0V9", function(bannerList) {
             $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Limited")));
             $.each(bannerList["limited"], function(i, banner) {
                 let bannerDate = new Date(banner["banner_enddatetime"]);
