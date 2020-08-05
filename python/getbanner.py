@@ -101,7 +101,7 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a64f52b17cc938dd96fb84d95f1cdeb6?q=129301920766&language=en'
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a64f52b17cc938dd96fb84d95f1cdeb6?language=en'
     banner_name = 'First Knight and the Holy Sword'
     rate_up = ['Radias','Shion']
 
