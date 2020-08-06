@@ -101,9 +101,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a64f52b17cc938dd96fb84d95f1cdeb6?language=en'
-    banner_name = 'First Knight and the Holy Sword'
-    rate_up = ['Radias','Shion']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/ba14f348d6fbfd0e88e3edf80e52adb1?language=en'
+    banner_name = 'Ally Encounter AS Series Part 3'
+    rate_up = ['Elga(AS)','Lokido(AS)','Yuna(AS)','Shanie(AS)','Nikeh(AS)']
 
     scrape_html(url)
 
