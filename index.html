@@ -62,18 +62,16 @@
             </button>
           </div>
         </div>
+
+        <div class="row mt-2" id="encounter-results-row-1">
+          <!-- <div class="col">༼ つ ◕_◕ ༽つ SUMMON HISUMENA ༼ つ ◕_◕ ༽つ</div> -->
+        </div>
+        <div class="row" id="encounter-results-row-2">
+
+        </div>
       </div>
     </div>
-    <div class="row mt-1">
-      <div class="col" id="results-header">
-        
-      </div>
-    </div>
-    <div class="row" id="encounter-results-row-1">
-      <!-- <div class="col">༼ つ ◕_◕ ༽つ SUMMON HISUMENA ༼ つ ◕_◕ ༽つ</div> -->
-    </div>
-    <div class="row" id="encounter-results-row-2">
-    </div>
+    
   </div>
   <footer class="bg-light py-4">
     <div class="container">
@@ -164,7 +162,6 @@
     }
     function resetEncounter() {
         $("#rateup-chars").html("");
-        $("#results-header").html("");
         currentEnc = {};
         $("#enc-one").prop("disabled", true).html(getEncounterButtonHtml(null));
         $("#enc-ten").prop("disabled", true).html(getEncounterButtonHtml(null));
@@ -208,7 +205,6 @@
             let selectedBannerImg = "images/banners/" + $(this).attr("data-banner-img");
             $("#banner-img").attr("src", selectedBannerImg);
             $("#official-rates").attr("href", $(this).attr("data-banner-official"));
-            $("#results-header").html($("<h4></h4>").text("Encounter Results"));
 
             let bannerToLoad = 'banners/' + $(this).attr("data-banner-file");
             $.getJSON(bannerToLoad, function(encounter) {
@@ -231,7 +227,6 @@
         $("#enc-one").on("click", function(e) {
             e.preventDefault();
             clearEncounterResults();
-            $("#results-header > h4").text("A Lone Encounter");
             let unit_pulled = pullUnit(currentEnc, "lone");
             $("#encounter-results-row-1").html($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
         });
@@ -239,7 +234,6 @@
         $("#enc-ten").on("click", function(e) {
             e.preventDefault();
             clearEncounterResults();
-            $("#results-header > h4").text("10 Allies Bundle");
             let unit_pulled = {};
             for (let x = 0; x < 9; x++) {
                 unit_pulled = pullUnit(currentEnc, "lone");
