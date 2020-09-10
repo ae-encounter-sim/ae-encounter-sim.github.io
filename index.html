@@ -69,6 +69,23 @@
         <div class="row" id="encounter-results-row-2">
 
         </div>
+        <div class="row" id="summary-stats">
+          <div class="col" id="total-pulls">
+            <span id="counters" data-lone-enc="0" data-tenth-enc="0" data-single-pull="0" data-ten-pull="0"></span>
+            <span id="five-stars" data-on-banner="" data-off-banner=""></span>
+            <h4>Totals</h4>
+
+          </div>
+          <div class="col">
+            <h4>5★ Pulled</h4>
+            <div id="pulled-five"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h4>Probabilities</h4>
+          </div>
+        </div>
       </div>
     </div>
     
@@ -136,7 +153,7 @@
         let pull = Math.random();
         return binarySearch(encounter["range_rows"][loneOrTenth], 0, encounter["range_rows"][loneOrTenth].length, pull);
     }
-    function getRateUpImage(name, charImages) {
+    function getCommandImage(name, charImages) {
         if (name in charImages) {
             let charId = charImages[name]["id"];
             let maxRarity = charImages[name]["max_rarity"];
@@ -211,7 +228,7 @@
                 $("#banner-name").html(encounter["name"]);
                 currentEnc = encounter;
                 $.each(encounter["rate_up"], function(i, character) {
-                    $("#rateup-chars").append(getRateUpImage(character, charImages));
+                    $("#rateup-chars").append(getCommandImage(character, charImages));
                 });
                 $("#container").trigger("jsonLoaded");
             });
