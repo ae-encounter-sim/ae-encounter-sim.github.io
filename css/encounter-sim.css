@@ -43,6 +43,9 @@ div.img-wrap {
 #rateup-chars > img, #pulled-five > img {
   width: 5rem;
 }
+#total-pulls {
+  min-height: 7.8125rem;
+}
 h4 {
   border-bottom: 1px solid #ddd;
   margin-bottom: 0.625rem;
@@ -80,6 +83,9 @@ h4 {
   .star, .gem {
     width: 1.5625rem;
     height: 1.5625rem;
+  }
+  table>tbody>tr>td:last-child {
+    font-style: 0.85rem;
   }
 }
 

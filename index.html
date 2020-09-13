@@ -63,17 +63,17 @@
           </div>
         </div>
 
-        <div class="row mt-2" id="encounter-results-row-1">
+        <div class="row mt-2 pt-2 border-top" id="encounter-results-row-1">
           <!-- <div class="col">༼ つ ◕_◕ ༽つ SUMMON HISUMENA ༼ つ ◕_◕ ༽つ</div> -->
         </div>
-        <div class="row" id="encounter-results-row-2">
+        <div class="row pb-2 border-bottom" id="encounter-results-row-2">
 
         </div>
-        <div class="row mt-4" id="summary-stats">
+        <div id="summary-stats" class="row mt-4">
           <div class="col" id="total-pulls">
             <span id="counters" data-lone-enc="0" data-tenth-enc="0" data-single-pull="0" data-ten-pull="0"></span>
             <span id="five-stars" data-on-banner="" data-off-banner="" data-all=""></span>
-            <h4>Totals</h4>
+            <h3>Totals <button type="button" id="reset-totals" class="btn btn-primary float-right">Reset</button></h3>
             <div class="d-block text-center">
               <img src="images/gem.png" class="gem"><span id="cs-used">0</span> CS Used
             </div>
@@ -82,21 +82,22 @@
             </div>
           </div>
           <div class="col">
-            <h4>5★ Pulled</h4>
+            <h3>5★ Pulled</h3>
             <div id="pulled-five"></div>
           </div>
         </div>
-        <div class="row mb-4">
+        <div id="probabilities" class="row mb-4">
           <div class="col">
-            <h4>Probabilities</h4>
+            <h3>Probabilities</h3>
             For <strong id="ten-pull"></strong>x <span class="badge badge-pill badge-warning">Ten pulls</span> <strong id="single-pull"></strong>x <span class="badge badge-pill badge-info">Single pulls</span>
             <div class="row">
               <div class="col">
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">Probability</th>
+                      <th scope="col" class="text-center">Probability</th>
                       <th scope="col">to pull 1 or more</th>
+                      <th scope="col" class="text-center d-none d-lg-table-cell">at rate(s)</th>
                     </tr>
                   </thead>
                   <tbody id="prob-characters">
@@ -108,18 +109,21 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">Probability</th>
+                      <th scope="col" class="text-center">Probability</th>
                       <th scope="col">to pull 1 or more</th>
+                      <th scope="col" class="text-center d-none d-lg-table-cell">at rate(s)</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td id="prob-banner-five" data-rate-lone="" data-rate-tenth=""></td>
+                      <td id="prob-banner-five" data-rate-lone="" data-rate-tenth="" data-name="bannerFive" class="text-center">0%</td>
                       <td>Any Banner 5★</td>
+                      <td class="text-center d-none d-lg-table-cell"></td>
                     </tr>
                     <tr>
-                      <td id="prob-any-five" data-rate-lone="" data-rate-tenth=""></td>
+                      <td id="prob-any-five" data-rate-lone="" data-rate-tenth="" data-name="anyFive" class="text-center">0%</td>
                       <td>Any 5★</td>
+                      <td class="text-center d-none d-lg-table-cell"></td>
                     </tr>
                   </tbody>
                 </table>
@@ -247,6 +251,8 @@
         $("#enc-one").prop("disabled", true).html(getEncounterButtonHtml(null));
         $("#enc-ten").prop("disabled", true).html(getEncounterButtonHtml(null));
         clearEncounterResults();
+        resetTotalsAndProbabilities();
+        $("#prob-characters>tr").remove();
     }
     function buildSelectorBanner(banner) {
         let bannerClass = [banner["banner_short_name"], "banner-select", "d-block", "mx-auto"];
@@ -284,27 +290,40 @@
             })
         }
         //update probabilities
-        let bannerFiveProb = calculateProbabilityOneOrMore($("#prob-banner-five").attr("data-rate-lone"), counters["loneEnc"], $("#prob-banner-five").attr("data-rate-tenth"), counters["tenthEnc"]);
-        $("#prob-banner-five").text(new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(bannerFiveProb));
-
-        let anyFiveProb = calculateProbabilityOneOrMore($("#prob-any-five").attr("data-rate-lone"), counters["loneEnc"], $("#prob-any-five").attr("data-rate-tenth"), counters["tenthEnc"]);
-        $("#prob-any-five").text(new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(anyFiveProb));
-
-        $("#prob-characters>tr>td.prob").each(function(i, character) {
+        $("#prob-characters>tr>td.prob, #prob-banner-five, #prob-any-five").each(function(i, character) {
             let characterProb = calculateProbabilityOneOrMore($(this).attr("data-rate-lone"), counters["loneEnc"], $(this).attr("data-rate-tenth"), counters["tenthEnc"]);
             $(this).text(new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(characterProb));
         });
 
+        $("#summary-stats, #probabilities").show("slow");
     }
     function setProbabilityRates(encounter, charImages) {
         let overallRates = { "lone" : { "bannerFive" : 0, "anyFive" : 0 }, "tenth" : { "bannerFive" : 0, "anyFive" : 0 } };
+        let nameMap = {};
         //create rows for rate up five stars
         if (encounter["rate_up"] != []) {
             encounter["rate_up"].forEach(function(name){
                 if (charImages[name]["max_rarity"] === 5) {
-                    $("#prob-characters").append($("<tr></tr>").append($("<td></td>").addClass("prob").attr("data-name", name)).append($("<td></td>").text("5★ " + name)));
+                    $("#prob-characters").append($("<tr></tr>").append($("<td></td>").text("0%").addClass("prob text-center").attr("data-name", name)).append($("<td></td>").text("5★ " + name)).append($("<td></td>").addClass("text-center d-none d-lg-table-cell")));
                     overallRates["lone"][name] = 0;
                     overallRates["tenth"][name] = 0;
+
+                    let excludeAS = { "Akane(AS)" : 1, "Ruina(AS)" : 1, "Nikeh(AS)" : 1 }; //no 5* base option
+                    if ("AS" in charImages[name] && !(name in excludeAS)) {
+                        let dataName = "FourFiveAS-" + name.slice(0, -4);
+                        $("#prob-characters").append($("<tr></tr>").append($("<td></td>").text("0%").addClass("prob text-center").attr("data-name", dataName)).append($("<td></td>").text("4★, 5★ or AS " + name.slice(0, -4))).append($("<td></td>").addClass("text-center d-none d-lg-table-cell")));
+                        overallRates["lone"][dataName] = 0;
+                        overallRates["tenth"][dataName] = 0;
+                        nameMap[name.slice(0, -4)] = dataName;
+                        nameMap[name] = dataName;
+                    }
+                    if (!("AS" in charImages[name]) && !(name+"(AS)" in charImages)) {
+                        let fourFiveName = "FourFive-" + name;
+                        $("#prob-characters").append($("<tr></tr>").append($("<td></td>").text("0%").addClass("prob text-center").attr("data-name", fourFiveName)).append($("<td></td>").text("4★ or 5★ " + name)).append($("<td></td>").addClass("text-center d-none d-lg-table-cell")));
+                        overallRates["lone"][fourFiveName] = 0;
+                        overallRates["tenth"][fourFiveName] = 0;
+                        nameMap[name] = fourFiveName;
+                    }
                 }
             })
         }
@@ -315,18 +334,30 @@
                     if (encounter["rate_up"].includes(character["name"])) {
                         overallRates[loneOrTenth][character["name"]] += (character["end_range"] - character["start_range"]);
                         overallRates[loneOrTenth]["bannerFive"] += (character["end_range"] - character["start_range"]);
+                        overallRates[loneOrTenth][nameMap[character["name"]]] += (character["end_range"] - character["start_range"]);
                     }
                     overallRates[loneOrTenth]["anyFive"] += (character["end_range"] - character["start_range"]);
+                } else if (character["rarity"] === 4 && encounter["rate_up"].includes(character["name"])) {
+                    overallRates[loneOrTenth][nameMap[character["name"]]] += (character["end_range"] - character["start_range"]);
                 }
             })
         })
         //set rates in html
-        $("#prob-banner-five").attr({"data-rate-lone" : overallRates["lone"]["bannerFive"], "data-rate-tenth" : overallRates["tenth"]["bannerFive"]});
-        $("#prob-any-five").attr({"data-rate-lone" : overallRates["lone"]["anyFive"], "data-rate-tenth" : overallRates["tenth"]["anyFive"]});
-        $("#prob-characters>tr>td.prob").each(function(i, character) {
+        $("#prob-characters>tr>td.prob, #prob-banner-five, #prob-any-five").each(function(i, character) {
             let name = $(this).attr("data-name");
             $(this).attr({"data-rate-lone" : overallRates["lone"][name], "data-rate-tenth" : overallRates["tenth"][name]});
+            let loneRate = new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(overallRates["lone"][name]);
+            let tenthRate = new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(overallRates["tenth"][name]);
+            $(this).next().next().text("".concat(loneRate, " (", tenthRate, ")"));
         });
+    }
+    function resetTotalsAndProbabilities() {
+        $("#cs-used, #currency-spent").text("0");
+        $("#pulled-five").html("");
+        $("#single-pull, #ten-pull").text("");
+        $("#prob-characters>tr>td.prob, #prob-banner-five, #prob-any-five").text("0%");
+        $("#counters").attr({ "data-lone-enc" : 0, "data-tenth-enc" : 0, "data-single-pull" : 0, "data-ten-pull" : 0 });
+        $("#five-stars").attr({ "data-on-banner" : "", "data-off-banner" : "", "data-all" : "" });
     }
 
     $( document ).ready(function() {
@@ -362,6 +393,7 @@
             let selectedBannerImg = "images/banners/" + $(this).attr("data-banner-img");
             $("#banner-img").attr("src", selectedBannerImg);
             $("#official-rates").attr("href", $(this).attr("data-banner-official"));
+            $("#summary-stats, #probabilities").hide();
 
             let bannerToLoad = 'banners/' + $(this).attr("data-banner-file");
             $.getJSON(bannerToLoad, function(encounter) {
@@ -381,6 +413,7 @@
         });
 
         $("#back-to-banners").on("click", resetEncounter);
+        $("#reset-totals").on("click", resetTotalsAndProbabilities);
 
         $("#enc-one").on("click", function(e) {
             e.preventDefault();
