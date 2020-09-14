@@ -297,53 +297,78 @@
 
         $("#summary-stats, #probabilities").show("slow");
     }
+    function sumRatesPerType(character) {
+        let loneRate = 0;
+        let tenthRate = 0;
+        Object.keys(character).forEach(function(rarity){
+            loneRate += rarity["lone"];
+            tenthRate += rarity["tenth"];
+        })
+        return [loneRate, tenthRate];
+    }
+    function addCharacterProbabilityRow(displayString, rates) {
+        let attributes = {"data-rate-lone" : rates[0], "data-rate-tenth" : rates[1]};
+        let loneRate = new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(rates[0]);
+        let tenthRate = new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(rates[1]);
+        $("#prob-characters").append($("<tr></tr>").append($("<td></td>").text("0%").addClass("prob text-center").attr(attributes)).append($("<td></td>").text(displayString)).append($("<td></td>").text("".concat(loneRate, " (", tenthRate, ")")).addClass("text-center d-none d-lg-table-cell")));
+    }
     function setProbabilityRates(encounter, charImages) {
         let overallRates = { "lone" : { "bannerFive" : 0, "anyFive" : 0 }, "tenth" : { "bannerFive" : 0, "anyFive" : 0 } };
-        let nameMap = {};
-        //create rows for rate up five stars
-        if (encounter["rate_up"] != []) {
-            encounter["rate_up"].forEach(function(name){
-                if (charImages[name]["max_rarity"] === 5) {
-                    $("#prob-characters").append($("<tr></tr>").append($("<td></td>").text("0%").addClass("prob text-center").attr("data-name", name)).append($("<td></td>").text("5★ " + name)).append($("<td></td>").addClass("text-center d-none d-lg-table-cell")));
-                    overallRates["lone"][name] = 0;
-                    overallRates["tenth"][name] = 0;
-
-                    let excludeAS = { "Akane(AS)" : 1, "Ruina(AS)" : 1, "Nikeh(AS)" : 1 }; //no 5* base option
-                    if ("AS" in charImages[name] && !(name in excludeAS)) {
-                        let dataName = "FourFiveAS-" + name.slice(0, -4);
-                        $("#prob-characters").append($("<tr></tr>").append($("<td></td>").text("0%").addClass("prob text-center").attr("data-name", dataName)).append($("<td></td>").text("4★, 5★ or AS " + name.slice(0, -4))).append($("<td></td>").addClass("text-center d-none d-lg-table-cell")));
-                        overallRates["lone"][dataName] = 0;
-                        overallRates["tenth"][dataName] = 0;
-                        nameMap[name.slice(0, -4)] = dataName;
-                        nameMap[name] = dataName;
-                    }
-                    if (!("AS" in charImages[name]) && !(name+"(AS)" in charImages)) {
-                        let fourFiveName = "FourFive-" + name;
-                        $("#prob-characters").append($("<tr></tr>").append($("<td></td>").text("0%").addClass("prob text-center").attr("data-name", fourFiveName)).append($("<td></td>").text("4★ or 5★ " + name)).append($("<td></td>").addClass("text-center d-none d-lg-table-cell")));
-                        overallRates["lone"][fourFiveName] = 0;
-                        overallRates["tenth"][fourFiveName] = 0;
-                        nameMap[name] = fourFiveName;
-                    }
+        let characterRates = {};
+        //find 5* banner units and set base character names
+        encounter["rate_up"].forEach(function(name){
+            if (charImages[name]["max_rarity"] === 5) {
+                if (name.includes("(AS)")) {
+                    characterRates[name.slice(0, -4)] = {};
+                } else {
+                    characterRates[name] = {};
                 }
-            })
-        }
+            }
+        })
         //loop through both range_rows and sum various rate ups
         Object.keys(encounter["range_rows"]).forEach(function(loneOrTenth){
             encounter["range_rows"][loneOrTenth].forEach(function(character){
                 if (character["rarity"] === 5) {
-                    if (encounter["rate_up"].includes(character["name"])) {
-                        overallRates[loneOrTenth][character["name"]] += (character["end_range"] - character["start_range"]);
+                    if (character["name"] in characterRates) {
+                        if (!("5" in characterRates[character["name"]])) {
+                            characterRates[character["name"]]["5"] = { "lone" : 0, "tenth" : 0 };
+                        }
+                        characterRates[character["name"]]["5"][loneOrTenth] = (character["end_range"] - character["start_range"]);
                         overallRates[loneOrTenth]["bannerFive"] += (character["end_range"] - character["start_range"]);
-                        overallRates[loneOrTenth][nameMap[character["name"]]] += (character["end_range"] - character["start_range"]);
+                    } else if (character["name"].includes("(AS)") && character["name"].slice(0, -4) in characterRates) {
+                        if (!("AS" in characterRates[character["name"]])) {
+                            characterRates[character["name"].slice(0, -4)]["AS"] = { "lone" : 0, "tenth" : 0 };
+                        }
+                        characterRates[character["name"].slice(0, -4)]["AS"][loneOrTenth] = (character["end_range"] - character["start_range"]);
+                        overallRates[loneOrTenth]["bannerFive"] += (character["end_range"] - character["start_range"]);
                     }
                     overallRates[loneOrTenth]["anyFive"] += (character["end_range"] - character["start_range"]);
-                } else if (character["rarity"] === 4 && encounter["rate_up"].includes(character["name"])) {
-                    overallRates[loneOrTenth][nameMap[character["name"]]] += (character["end_range"] - character["start_range"]);
+                    
+                } else if (character["rarity"] === 4 && character["name"] in characterRates) {
+                    if (!("4" in characterRates[character["name"]])) {
+                        characterRates[character["name"]]["4"] = { "lone" : 0, "tenth" : 0 };
+                    }
+                    characterRates[character["name"]]["4"][loneOrTenth] = (character["end_range"] - character["start_range"]);
                 }
             })
         })
-        //set rates in html
-        $("#prob-characters>tr>td.prob, #prob-banner-five, #prob-any-five").each(function(i, character) {
+        //create rows for rate up five stars with rates
+        Object.keys(characterRates).forEach(function(character){
+            if ("5" in characterRates[character] && "AS" in characterRates[character]) {
+                addCharacterProbabilityRow("Any " + character + " (4★, 5★ or AS)", sumRatesPerType(character));
+            } else if ("4" in characterRates[character] && "5" in characterRates[character]) {
+                addCharacterProbabilityRow("Any " + character + " (4★ or 5★)", sumRatesPerType(character));
+            }
+
+            if ("AS" in characterRates[character] && encounter["rate_up"].includes(character+"(AS)")) {
+                addCharacterProbabilityRow("5★ " + character + " (AS)", [character["AS"]["lone"], character["AS"]["tenth"]]);
+            }
+            if ("5" in characterRates[character] && encounter["rate_up"].includes(character)) {
+                addCharacterProbabilityRow("5★ " + character, [character["5"]["lone"], character["5"]["tenth"]]);
+            }
+        })
+        //set overall rates
+        $("#prob-banner-five, #prob-any-five").each(function(i, character) {
             let name = $(this).attr("data-name");
             $(this).attr({"data-rate-lone" : overallRates["lone"][name], "data-rate-tenth" : overallRates["tenth"][name]});
             let loneRate = new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(overallRates["lone"][name]);
