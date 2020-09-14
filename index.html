@@ -89,7 +89,15 @@
         <div id="probabilities" class="row mb-4">
           <div class="col">
             <h3>Probabilities</h3>
-            For <strong id="ten-pull"></strong>x <span class="badge badge-pill badge-warning">Ten pulls</span> <strong id="single-pull"></strong>x <span class="badge badge-pill badge-info">Single pulls</span>
+            <div class="pb-2">
+              For 
+              <div id="ten-pull-badge">
+                <strong id="ten-pull"></strong>x <span class="badge badge-pill badge-warning">Ten pulls</span> 
+              </div>
+              <div id="single-pull-badge">
+                <strong id="single-pull"></strong>x <span class="badge badge-pill badge-info">Single pulls</span>
+              </div>
+            </div>
             <div class="row">
               <div class="col">
                 <table class="table table-hover">
@@ -383,6 +391,7 @@
         $("#prob-characters>tr>td.prob, #prob-banner-five, #prob-any-five").text("0%");
         $("#counters").attr({ "data-lone-enc" : 0, "data-tenth-enc" : 0, "data-single-pull" : 0, "data-ten-pull" : 0 });
         $("#five-stars").attr({ "data-on-banner" : "", "data-off-banner" : "", "data-all" : "" });
+        $("#single-pull-badge, #ten-pull-badge").hide();
     }
 
     $( document ).ready(function() {
@@ -433,6 +442,7 @@
 
         $("#container").on("jsonLoaded", function() {
             setProbabilityRates(currentEnc, charImages);
+            $("#single-pull-badge, #ten-pull-badge").hide();
             $("#enc-one").prop("disabled", false).html(getEncounterButtonHtml("one"));
             $("#enc-ten").prop("disabled", false).html(getEncounterButtonHtml("ten"));
         });
@@ -446,6 +456,7 @@
             let unit_pulled = pullUnit(currentEnc, "lone");
             $("#encounter-results-row-1").html($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
             updateTotalsAndProbabilities("lone", charImages);
+            $("#single-pull-badge").show("fast");
         });
 
         $("#enc-ten").on("click", function(e) {
@@ -460,6 +471,7 @@
             unit_pulled = pullUnit(currentEnc, "tenth");
             $("#encounter-results-row-2").append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
             updateTotalsAndProbabilities("tenth", charImages);
+            $("#ten-pull-badge").show("fast");
         });
     });
  

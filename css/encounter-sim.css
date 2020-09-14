@@ -59,6 +59,9 @@ h4 {
   right: 1rem;
   z-index: 999;
 }
+#ten-pull-badge, #single-pull-badge {
+  display: inline;
+}
 @media (min-width: 992px) {
   #banner-img { 
     max-width: 37.5rem;
@@ -84,8 +87,8 @@ h4 {
     width: 1.5625rem;
     height: 1.5625rem;
   }
-  table>tbody>tr>td:last-child {
-    font-style: 0.85rem;
+  .table>tbody>tr>td:last-child {
+    font-size: 0.8rem;
   }
 }
 
