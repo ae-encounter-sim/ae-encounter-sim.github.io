@@ -301,8 +301,8 @@
         let loneRate = 0;
         let tenthRate = 0;
         Object.keys(character).forEach(function(rarity){
-            loneRate += rarity["lone"];
-            tenthRate += rarity["tenth"];
+            loneRate += character[rarity]["lone"];
+            tenthRate += character[rarity]["tenth"];
         })
         return [loneRate, tenthRate];
     }
@@ -336,7 +336,7 @@
                         characterRates[character["name"]]["5"][loneOrTenth] = (character["end_range"] - character["start_range"]);
                         overallRates[loneOrTenth]["bannerFive"] += (character["end_range"] - character["start_range"]);
                     } else if (character["name"].includes("(AS)") && character["name"].slice(0, -4) in characterRates) {
-                        if (!("AS" in characterRates[character["name"]])) {
+                        if (!("AS" in characterRates[character["name"].slice(0, -4)])) {
                             characterRates[character["name"].slice(0, -4)]["AS"] = { "lone" : 0, "tenth" : 0 };
                         }
                         characterRates[character["name"].slice(0, -4)]["AS"][loneOrTenth] = (character["end_range"] - character["start_range"]);
@@ -355,16 +355,16 @@
         //create rows for rate up five stars with rates
         Object.keys(characterRates).forEach(function(character){
             if ("5" in characterRates[character] && "AS" in characterRates[character]) {
-                addCharacterProbabilityRow("Any " + character + " (4★, 5★ or AS)", sumRatesPerType(character));
+                addCharacterProbabilityRow("Any " + character + " (4★, 5★ or AS)", sumRatesPerType(characterRates[character]));
             } else if ("4" in characterRates[character] && "5" in characterRates[character]) {
-                addCharacterProbabilityRow("Any " + character + " (4★ or 5★)", sumRatesPerType(character));
+                addCharacterProbabilityRow("Any " + character + " (4★ or 5★)", sumRatesPerType(characterRates[character]));
             }
 
             if ("AS" in characterRates[character] && encounter["rate_up"].includes(character+"(AS)")) {
-                addCharacterProbabilityRow("5★ " + character + " (AS)", [character["AS"]["lone"], character["AS"]["tenth"]]);
+                addCharacterProbabilityRow("5★ " + character + " (AS)", [characterRates[character]["AS"]["lone"], characterRates[character]["AS"]["tenth"]]);
             }
             if ("5" in characterRates[character] && encounter["rate_up"].includes(character)) {
-                addCharacterProbabilityRow("5★ " + character, [character["5"]["lone"], character["5"]["tenth"]]);
+                addCharacterProbabilityRow("5★ " + character, [characterRates[character]["5"]["lone"], characterRates[character]["5"]["tenth"]]);
             }
         })
         //set overall rates
