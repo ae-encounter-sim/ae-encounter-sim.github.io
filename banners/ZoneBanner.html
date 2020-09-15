@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>      [FUTURE] ZONE Banner    </title>
+    <meta name="title" content="[FUTURE] ZONE Banner">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+          font-family: YuGothicM;
+          src: local("Yu Gothic Medium");
+        }
+
+        body {
+            background-color: #ededea;
+            font-size: 14px;
+            color: #4f443a;
+            font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","æ¸¸ã‚´ã‚·ãƒƒã‚¯ Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,sans-serif;
+        }
+
+        body::before {
+            background:url('../images/news/news_bg3.png') no-repeat left top;
+            background-size: 100% auto;
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            z-index: -1;
+            font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","æ¸¸ã‚´ã‚·ãƒƒã‚¯ Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,sans-serif;
+        }   
+
+        .orange {
+            color: #cb6d10;
+        }
+        .red {
+            color: #ab1f25;
+        }
+
+        table.lottery td{
+            border-bottom: none;
+            line-height: 20px;
+        }
+
+        .new {
+
+            background:url('../images/news/new.png') no-repeat 3px center;
+            background-size: 30px;
+            padding-left: 33px;
+        }
+
+        .style {
+            background:url('../images/news/style.png') no-repeat 3px 6px;
+            background-size: 30px;
+            padding-left: 33px;
+        }
+
+        .style.new {
+            background:url('../images/news/new_style.png') no-repeat 3px 1px;
+            background-size: 33px;
+            padding-left: 33px;
+        }
+
+        tr.line_none td{
+            border-top: hidden;
+            /* border-bottom: solid 1px #a2a1a1; */
+        }
+
+        tr.line_none td.none{
+            border-top: solid 1px #9c9c9c;
+        }
+
+        .pickup {
+            color: #14867a;
+            font-weight: bold;
+        }
+
+        .red {
+            color: #ab1f25;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .content {
+            /* width: 480px; */
+            margin: 10px 30px 50px 30px;
+        }
+
+        /* ã‚¿ãƒ–ãƒ¬ãƒƒãƒˆ */
+        @media (min-width: 768px) {
+        .content {
+            margin: 20px 60px 100px 60px;
+        }
+        }
+
+        .section {
+            margin: 5px 0px 30px 0px;
+        }
+
+        p {
+            -webkit-margin-before: 0px;
+            -webkit-margin-after: 0px;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            margin-bottom: 10px;
+        }
+
+        .bnr_img{
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.1);
+            -webkit-box-shadow:0px 0px 3px 3px rgba(0,0,0,0.1);
+            -moz-box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.1);
+        }
+
+        .wide_img{
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        .shadow {
+            box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
+            -webkit-box-shadow:0px 0px 2px 2px rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
+        }
+
+        .img_bdr {
+            border: 1px solid #FFF;
+        }
+
+        table {
+            width: 100%;
+            border: solid 1px #6c6c6c;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            color: #373737;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+
+        th,td {
+            border: solid 1px #6c6c6c;
+            padding: 5px 4px;
+        }
+
+        td.none {
+            background: #b2b2b2;
+        }
+
+        /*2åˆ†å‰²ã®ãƒ†ãƒ¼ãƒ–ãƒ«*/
+        .halftd{
+            width: 50%;
+        }
+
+        /*3åˆ†å‰²ã®ãƒ†ãƒ¼ãƒ–ãƒ«*/
+        .thirdtd{
+            width: 33%;
+        }
+
+        /*4åˆ†å‰²ã®ãƒ†ãƒ¼ãƒ–ãƒ«*/
+        .quattd{
+            width: 25%;
+        }
+
+        /*4åˆ†å‰²ã®ãƒ†ãƒ¼ãƒ–ãƒ«*/
+        .fifthtd{
+            width: 20%;
+        }
+
+        table tr:nth-child(even) {
+            background: #e9e9e9;
+        }
+
+        table tr:nth-child(odd) {
+            background: #d2d2d2;
+        }
+
+        th {
+            color: #FFF;
+            background-color: #434343;
+            font-weight: normal;
+        }
+
+        .b {
+            font-weight: bold;
+        }
+
+        .notice {
+            font-size: 12px;
+        }
+
+        .date {
+            text-align: right;
+            font-size: 11px;
+            margin-top: -13px;
+            margin-bottom: 5px;
+            color: #776c62;
+        }
+
+        .button,.button2 {
+            color: #5e5347;
+            background: #d4ccba;
+            padding: 7px;
+            border: 3px solid rgba(255,255,255,0.5);
+            border-radius: 20px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            box-shadow: 0 0 0 2px #ab9f87;
+            -moz-box-shadow: 0 0 0 2px #ab9f87;
+            -webkit-box-shadow: 0 0 0 2px #ab9f87;
+        }
+
+
+
+        h1 {
+            height: 44px;
+            margin-bottom: 1px;
+        }
+
+        h1 img {
+            max-width: 480px;
+            height: auto;
+        }
+
+        h2 {
+            font-family: Georgia,æ¸¸æ˜Žæœ,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGSæ˜ŽæœE,ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,serif;
+            text-align: center;
+            font-weight: bold;
+            padding-bottom: 10px;
+            background-image: url('../images/news/border_h2.png');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 100%;
+        }
+
+        h3 {
+            font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","æ¸¸ã‚´ã‚·ãƒƒã‚¯ Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,sans-serif;
+            font-weight: bold;
+            background-image: url('../images/news/border_h3.png');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 100%;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .h3icon {
+            float: left;
+            width: 25px;
+            padding-top: 10px;
+            margin-left: 16px;
+        }
+        /*
+        .h3title {
+            font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","æ¸¸ã‚´ã‚·ãƒƒã‚¯ Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,sans-serif;
+            font-weight: bold;
+            color: #FFF;
+            font-size: 18px;
+            margin-left: 41px;
+            padding-top: 7px;
+            letter-spacing: -0.05em;
+            background-image: url(https://s3-ap-northeast-1.amazonaws.com/gree-kms-prod-assets/webview/lottery_notice/img/title_h3_bg.png);
+            height: 45px;
+        }
+        */
+        h3.sub {
+            background-image: url('../images/news/border_h3.png');
+        }
+
+
+        /* h4ã‚¿ã‚¤ãƒˆãƒ« */
+        h4 {
+            width: 100%;
+            height: 45px;
+            background-image: url('../images/news/title_h4_bg.png');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100%;
+        }
+
+        .h4title {
+            font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","æ¸¸ã‚´ã‚·ãƒƒã‚¯ Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,sans-serif;
+            font-weight: bold;
+            color: #FFF;
+            font-size: 18px;
+            margin-left: 12px;
+            padding-top: 7px;
+            letter-spacing: -0.05em;
+        }
+
+        /* h5ã‚¿ã‚¤ãƒˆãƒ« */
+        h5 {
+            width: 100%;
+            height: 45px;
+            background-image: url('../images/news/title_maintenance.png');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100%;
+        }
+
+        .h5title {
+            font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","æ¸¸ã‚´ã‚·ãƒƒã‚¯ Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",ãƒ¡ã‚¤ãƒªã‚ª,Meiryo,sans-serif;
+            font-weight: bold;
+            color: #FFF;
+            font-size: 18px;
+            margin-left: 66px;
+            padding-top: 9px;
+            letter-spacing: -0.05em;
+        }
+    </style>  
+</head>  
+<body>    <div class="content">      <h2>        [FUTURE] ZONE Banner      </h2>      <div class="section">        <h3>          Offer Period        </h3>        <p>          Available until ??:?? ??? ??, ???? (UTC)
+<br>          *The Encounter will end at the given time, regardless of app version.<br>        </p>      </div>      <div class="section">        <h3>          Details        </h3>
+  <span class="red">*5★ classes for other characters are not available.</span>
+  <br>        ・Hardy
+<br>
+・Anabel (Another Style)
+<br>
+  ・Claude (Another Style)
+  <br>
+  ・Myunfa
+  <br>
+  ・Yuna (Another Style)
+  <br>
+  ・Veina (Another Style)
+  <br>
+                <p>          Use 100 Chronos Stones to encounter an ally in "Lone Encounter."<br>          Use 1000 Chronos Stones to encounter 10 people in "10 Allies Bundle."<br>          *1 out of 10 allies is guaranteed to be classed 4 stars or higher in "10 Allies Bundle."        </p>      </div>      <div class="section">        <h3>          Encounter Ratio        </h3>        <p>
+          In the Encounter "10 Allies Bundle," the percentage written in
+ brackets reflects the appearance ratio on the tenth (10) encounter.    
+    </p><table>
+    <tbody><tr>
+        <th class="quattd">Characters</th>
+        <th class="quattd">★★★</th>
+        <th class="quattd">★★★★</th>
+        <th class="quattd">★★★★★</th>
+    </tr>
+                <tr>
+    
+        <td class="new">Hardy</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="pickup">0.55%(0.60%)</td>
+    
+    </tr>
+<tr>
+    
+        <td>Anabel</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+<tr class="line_none">
+        
+        <td class="style">Divine Paladin</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="pickup">0.55%(0.60%)</td>
+    
+    </tr>
+<tr>
+    
+        <td>Claude</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+<tr class="line_none">
+        
+        <td class="style">Magna Rex</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="pickup">0.55%(0.60%)</td>
+    
+    </tr>
+<tr>
+    
+        <td>Myunfa</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="pickup">0.55%(0.60%)</td>
+    
+    </tr>
+<tr>
+    
+        <td>Yuna</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+<tr class="line_none">
+        
+        <td class="style">Aqua Goddess</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="pickup">0.55%(0.60%)</td>
+    
+    </tr>
+<tr>
+    
+        <td>Veina</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+<tr class="line_none">
+        
+        <td class="style">Titania</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="pickup">0.55%(0.60%)</td>
+    
+    </tr><tr>
+    
+        <td>Zeviro</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Dunarith</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Tiramisu</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                
+                <tr>
+    
+        <td>Kikyo</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Premaya</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Hismena</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Lovely</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Philo</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Rosetta</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Shigure</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Tsubame</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Biaka</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Ilulu</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Radica</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Myrus</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Cybele</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Melina</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Punishment</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Nagi</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Tentamare</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Isuka</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Starlight</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Shion</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Sunrise</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Suzette</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Butterfly Warrior</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                
+                
+                <tr>
+    
+        <td>Elga</td>
+    
+        <td class="none"></td>
+    
+        <td>0.04%(0.21%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Orco-Figlia</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Ruina</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.42%(2.19%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Sky Sprite</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Akane</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.42%(2.19%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Mikahayahi</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Nikeh</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.42%(2.19%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Yasomagatsuhi</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Dewey</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Felmina</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Shining Shadow</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Bertrand</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Tsukiha</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Renri</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Covert Agent</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Shannon</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Hozuki</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                
+                <tr>
+    
+        <td>Ewan</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Cetie</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Crimson Ray</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Shanie</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Brunhild</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                
+                
+                <tr>
+    
+        <td>Laclair</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Blanc Meneur</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Lokido</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Proud Beast</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Toova</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Cursed Bride</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Mighty</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">Hypnotist</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Mariel</td>
+    
+        <td class="none"></td>
+    
+        <td>0.12%(0.31%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr class="line_none">
+        
+        <td class="style">High Priestess</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                
+                <tr>
+    
+        <td>Prai</td>
+    
+        <td>1.16%</td>
+    
+        <td>0.62%(2.59%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Krervo</td>
+    
+        <td>1.16%</td>
+    
+        <td>0.62%(2.59%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Pom</td>
+    
+        <td>1.16%</td>
+    
+        <td>0.62%(2.59%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Soira</td>
+    
+        <td>1.16%</td>
+    
+        <td>0.62%(2.59%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Nero</td>
+    
+        <td>1.16%</td>
+    
+        <td>0.62%(2.59%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Erina</td>
+    
+        <td>1.16%</td>
+    
+        <td>0.62%(2.59%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Lingli</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Samora</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Benedict</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Komachi</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Rovella</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Nonold</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Breeno</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Parisa</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Raven</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Lele</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Sevyn</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Myron</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Yio</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Denny</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Cyuca</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Nomar</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Foran</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Ciel</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Darunis</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Rufus</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>May</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Lovinia</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Chiyo</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Zilva</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Yazuki</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Otoha</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Miranda</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Bivette</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.43%(2.20%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Miyu</td>
+    
+        <td>1.04%</td>
+    
+        <td>0.40%(2.17%)</td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Kilqia</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Naylia</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Menesia</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Rodeia</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Sauria</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Asia</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Urania</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Pasia</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Yssis</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Natore</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Tohme</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Esta</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Bria</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Nixa</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Emms</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Ctos</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Noome</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Uuo</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Koot</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Oor</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Een</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Saithe</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Tayme</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+                <tr>
+    
+        <td>Toole</td>
+    
+        <td>1.50%</td>
+    
+        <td class="none"></td>
+    
+        <td class="none"></td>
+    
+    </tr>
+    </tbody></table>
+        <p class="notice">          *The percentage is rounded down to the second decimal place.        </p>* <img src="ZoneBanner_files/icon_style.png" width="20"> Another Style      </div>      <div class="section">        <h3>          In cases of re-encountering allies        </h3>        <p>          ・If the ally you encounter is a higher class than the one you already have, the current ally’s class will increase.<br>          ・Depending on the class of the ally you encounter, either Light points or Shadow points will also increase.<br>
+          ・If Light points and Shadow points have reached their maximum 
+amount (255), a weapon or rank item will be awarded.        </p>        <table>          <tbody><tr>            <th class="ns fifthtd">              Class            </th>            <th class="ns thirdtd">              Item Information<br>              Awarding Light and Shadow Points            </th>            <th class="ns　thirdtd">              Item Information<br>              When Light and Shadow Points maximum is reached            </th>          </tr>          <tr>            <td class="ns">              ★★★            </td>            <td class="ns">              Light/Shadow Points + 1            </td>            <td class="ns">              Light/Shadow Item x 1            </td>          </tr>          <tr>            <td class="ns">              ★★★★            </td>            <td class="ns">              Light/Shadow Points + 4            </td>            <td class="ns">              Light/Shadow Item x 4            </td>          </tr>          <tr>            <td class="ns">              ★★★★★            </td>            <td class="ns">              Light/Shadow Points + 16            </td>            <td class="ns">              Light/Shadow Item x 16            </td>          </tr>        </tbody></table>      </div>    </div>  
+</body></html>
