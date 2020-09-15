@@ -52,11 +52,13 @@
         </div>
         <div class="row my-2">
           <div class="col">
-            <button id="enc-one" type="button" class="btn btn-info" disabled>
+            <button id="enc-one" type="button" class="btn btn-info btn-block" disabled>
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               Loading...
             </button>
-            <button id="enc-ten" type="button" class="btn btn-warning" disabled>
+          </div>
+          <div class="col">
+            <button id="enc-ten" type="button" class="btn btn-warning btn-block" disabled>
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               Loading...
             </button>
@@ -248,8 +250,8 @@
             return '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
         } else {
             let typeDict = { "one" : { "label" : "A Lone Encounter", "cost" : "100" }, "ten" : { "label" : "10 Allies Bundle", "cost" : "1,000" } };
-            let label = '<div class="d-flex">' + typeDict[encType]["label"] + '</div>';
-            let gems = '<div class="d-flex"><img src="images/gem.png" class="gem"> ' + typeDict[encType]["cost"] + '</div>';
+            let label = '<div class="d-block text-align-center">' + typeDict[encType]["label"] + '</div>';
+            let gems = '<div class="d-block text-align-center"><img src="images/gem.png" class="gem"> ' + typeDict[encType]["cost"] + '</div>';
             return label + gems;
         }
     }
