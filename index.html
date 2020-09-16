@@ -8,7 +8,7 @@
   <title>Another Eden Encounter Simulator</title>
   <link rel="stylesheet" href="css/vendor/bootswatch-litera-4.4.1/bootstrap.min.css">
   <link rel="stylesheet" href="css/vendor/fontawesome-pro-5.14.0-web/css/all.min.css">
-  <link rel="stylesheet" href="css/encounter-sim.css?v=g2N3IFaZSp">
+  <link rel="stylesheet" href="css/encounter-sim.css?v=Hj78C41iOM">
   
   <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -80,7 +80,7 @@
               <img src="images/gem.png" class="gem"><span id="cs-used">0</span> CS Used
             </div>
             <div class="d-block text-center">
-              <span id="currency-spent">0</span> USD Spent
+              <span id="currency-spent">0</span> USD Spent <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Chronos Stones are purchased in batches of 1050 at the regular price of $31.99"></i>
             </div>
           </div>
           <div class="col">
@@ -90,7 +90,14 @@
         </div>
         <div id="probabilities" class="row mb-4">
           <div class="col">
-            <h3>Probabilities</h3>
+            <h3 class="d-inline-block">Probabilities</h3>
+            <a class="ml-2" href="#prob-more-info" data-toggle="collapse" aria-expanded="false">
+              <span class="info-closed">more info <i class="fas fa-angle-down"></i></span>
+              <span class="info-open">less info <i class="fas fa-angle-up"></i></span>
+            </a>
+            <p id="prob-more-info" class="lead collapse">
+              Probability is calculated as an overall chance to pull 1 or more copies of a unit for the attempted number of pulls using the <a href="https://en.wikipedia.org/wiki/Binomial_distribution" target="_blank">Binomial distribution</a>; remember that each pull is an independent event and past failures do not increase the likelihood of successful pulls in the future.
+            </p>
             <div class="pb-2">
               For 
               <div id="ten-pull-badge">
@@ -107,7 +114,7 @@
                     <tr>
                       <th scope="col" class="text-center">Probability</th>
                       <th scope="col">to pull 1 or more</th>
-                      <th scope="col" class="text-center d-none d-lg-table-cell">at rate(s)</th>
+                      <th scope="col" class="text-center d-none d-lg-table-cell">at rate(s) <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The percentage written in brackets reflects the appearance ratio on the tenth (10) encounter"></i></th>
                     </tr>
                   </thead>
                   <tbody id="prob-characters">
@@ -121,7 +128,7 @@
                     <tr>
                       <th scope="col" class="text-center">Probability</th>
                       <th scope="col">to pull 1 or more</th>
-                      <th scope="col" class="text-center d-none d-lg-table-cell">at rate(s)</th>
+                      <th scope="col" class="text-center d-none d-lg-table-cell">at rate(s) <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The percentage written in brackets reflects the appearance ratio on the tenth (10) encounter"></i></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -173,6 +180,7 @@
   </footer>
 
   <script src="js/vendor/jquery-3.4.1/jquery.min.js"></script>
+  <script src="js/vendor/popper-1.12.9/popper.min.js"></script>
   <script src="js/vendor/bootstrap-4.4.1/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/binarysearch.js"></script>
   <script>
@@ -266,7 +274,7 @@
     }
     function buildSelectorBanner(banner) {
         let bannerClass = [banner["banner_short_name"], "banner-select", "d-block", "mx-auto"];
-        return $("<div></div>").addClass("col py-1").append($("<a></a>").addClass(bannerClass).attr({ "href" : "#", "data-banner-file" : banner["banner_file"], "data-banner-img" : banner["banner_image"], "data-toggle" : "collapse", "data-target" : "#encounter-info", "data-banner-official" : banner["official_link"] }));
+        return $("<div></div>").addClass("col py-1").append($("<a></a>").addClass(bannerClass).attr({ "href" : "#", "data-banner-file" : banner["banner_file"], "data-banner-img" : banner["banner_image"], "data-toggle" : "collapse", "data-target" : "#encounter-info", "data-banner-official" : banner["official_link"], "data-banner-name" : banner["name"] }));
     }
     function calculateProbabilityOneOrMore(loneRate, lonePulls, tenthRate, tenthPulls) {
         // 1 - (1 - loneRate)^lonePulls * (1 - tenthRate)^tenthPulls
@@ -397,10 +405,12 @@
     }
 
     $( document ).ready(function() {
-        var currentEnc = {}
-        var charImages = {}
+        var currentEnc = {};
+        var charImages = {};
 
-        $.getJSON("character_images.json?v=g2N3IFaZSp", function(images) {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $.getJSON("character_images.json?v=Hj78C41iOM", function(images) {
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Loading character image map...")).toast("show"));
             charImages = images;
             $("#container").trigger("imageMapLoaded");
@@ -410,7 +420,13 @@
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Character image map load complete!")).toast("show"));
         });
 
-        $.getJSON("encounter_banners.json?v=g2N3IFaZSp", function(bannerList) {
+        $.getJSON("encounter_banners.json?v=Hj78C41iOM", function(bannerList) {
+            if ("future" in bannerList) {
+              $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Future")));
+              $.each(bannerList["future"], function(i, banner) {
+                  $("#banner-options").append(buildSelectorBanner(banner));
+              });
+            }
             $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Limited")));
             $.each(bannerList["limited"], function(i, banner) {
                 let bannerDate = new Date(banner["banner_enddatetime"]);
@@ -429,11 +445,11 @@
             let selectedBannerImg = "images/banners/" + $(this).attr("data-banner-img");
             $("#banner-img").attr("src", selectedBannerImg);
             $("#official-rates").attr("href", $(this).attr("data-banner-official"));
+            $("#banner-name").text($(this).attr("data-banner-name"));
             $("#summary-stats, #probabilities").hide();
 
             let bannerToLoad = 'banners/' + $(this).attr("data-banner-file");
             $.getJSON(bannerToLoad, function(encounter) {
-                $("#banner-name").html(encounter["name"]);
                 currentEnc = encounter;
                 $.each(encounter["rate_up"], function(i, character) {
                     $("#rateup-chars").append(getCommandImage(character, charImages));
