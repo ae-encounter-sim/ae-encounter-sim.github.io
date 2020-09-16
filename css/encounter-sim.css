@@ -40,8 +40,11 @@ div.img-wrap {
 #banner-img {
   height: auto;
 }
-#rateup-chars > img {
+#rateup-chars > img, #pulled-five > img {
   width: 5rem;
+}
+#total-pulls {
+  min-height: 7.8125rem;
 }
 h4 {
   border-bottom: 1px solid #ddd;
@@ -55,6 +58,12 @@ h4 {
   bottom: 1rem;
   right: 1rem;
   z-index: 999;
+}
+#ten-pull-badge, #single-pull-badge {
+  display: inline;
+}
+a[aria-expanded="true"] .info-closed, a[aria-expanded="false"] .info-open {
+  display: none;
 }
 @media (min-width: 992px) {
   #banner-img { 
@@ -80,6 +89,12 @@ h4 {
   .star, .gem {
     width: 1.5625rem;
     height: 1.5625rem;
+  }
+  .table>tbody>tr>td:last-child {
+    font-size: 0.8rem;
+  }
+  #enc-ten, #enc-one {
+    font-size: 1.25rem;
   }
 }
 
@@ -142,6 +157,9 @@ a.banner-select.cynthia {
 }
 a.banner-select.manifest-weapon-yuna-dewey {
   background: url("../images/banners/91007.combo.png") 0 0 no-repeat;
+}
+a.banner-select.future-zone {
+  background: url("../images/banners/future-zone.combo.jpg") 0 0 no-repeat;
 }
 a.banner-select:hover {
   background-position: 0 -7.625rem;
