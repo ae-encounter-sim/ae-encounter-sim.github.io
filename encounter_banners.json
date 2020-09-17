@@ -1,15 +1,21 @@
 {
-	"future" : [
-		{
-			"name" : "ZONE Banner",
-			"banner_file" : "[Future] ZONE Banner.json",
-			"banner_image" : "[Future] ZONE Banner.jpg",
-			"banner_enddatetime" : "2020-09-30T14:59:59Z",
-			"official_link" : "https://ae-encounter-sim.github.io/banners/ZoneBanner.html",
-			"banner_short_name" : "future-zone"
-		}
-	],
 	"limited" : [
+		{
+			"name" : "Ally Encounter: Zone Series",
+			"banner_file" : "Ally Encounter Zone Series.json",
+			"banner_image" : "Ally Encounter Zone Series.png",
+			"banner_enddatetime" : "2020-09-30T14:59:59Z",
+			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/af7d479fc501ddccc17f661f7e09e6aa?language=en",
+			"banner_short_name" : "zones"
+		},
+		{
+			"name" : "The Lost Tome and the Silver, Unfading Flower",
+			"banner_file" : "The Lost Tome and the Silver Unfading Flower.json",
+			"banner_image" : "The Lost Tome and the Silver Unfading Flower.png",
+			"banner_enddatetime" : "2020-10-17T14:59:59Z",
+			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/e23f64bd8b4a7edb62d63c96de1503e0?language=en",
+			"banner_short_name" : "hardy"
+		},
 		{
 			"name" : "Ally Encounter: Cynthia",
 			"banner_file" : "Ally Encounter Cynthia.json",
@@ -170,7 +176,7 @@
 			"banner_file" : "Default Encounter.json",
 			"banner_image" : "Default Encounter.png",
 			"banner_enddatetime" : "2099-01-01T00:00:00Z",
-			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/e302a0bfe562d82eeec29fbd8a27c66e?language=en",
+			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/dc41ced9a00e77c14bcaabb4fbf3c77a?language=en",
 			"banner_short_name" : "default-encounter"
 		}
 	]
