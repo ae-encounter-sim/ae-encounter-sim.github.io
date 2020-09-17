@@ -310,6 +310,7 @@
         //update probabilities
         $("#prob-characters>tr>td.prob, #prob-banner-five, #prob-any-five").each(function(i, character) {
             let characterProb = calculateProbabilityOneOrMore($(this).attr("data-rate-lone"), counters["loneEnc"], $(this).attr("data-rate-tenth"), counters["tenthEnc"]);
+            characterProb = (characterProb > 0.9999) ? 0.9999 : characterProb;
             $(this).text(new Intl.NumberFormat(undefined, { style: "percent", maximumFractionDigits: 2 }).format(characterProb));
         });
 
