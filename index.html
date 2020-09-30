@@ -72,7 +72,7 @@
 
         </div>
         <div id="summary-stats" class="row mt-4">
-          <div class="col" id="total-pulls">
+          <div class="col-12 col-sm-6" id="total-pulls">
             <span id="counters" data-lone-enc="0" data-tenth-enc="0" data-single-pull="0" data-ten-pull="0"></span>
             <span id="five-stars" data-on-banner="" data-off-banner="" data-all=""></span>
             <h3>Totals <button type="button" id="reset-totals" class="btn btn-primary float-right">Reset</button></h3>
@@ -80,10 +80,24 @@
               <img src="images/gem.png" class="gem"><span id="cs-used">0</span> CS Used
             </div>
             <div class="d-block text-center">
-              <span id="currency-spent">0</span> USD Spent <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Chronos Stones are purchased in batches of 1050 at the regular price of $31.99"></i>
+              <span id="currency-spent">0</span> USD Spent <i id="cs-spent-tooltip" class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Chronos Stones are purchased in batches of 3250 at the regular price of $79.99"></i>
+            </div>
+            <div class="d-block text-center mt-2">
+              Buy CS in bundles of: 
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" class="buy-cs" autocomplete="off" value="3250" data-usd="79.99" checked=""> 3250
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" class="buy-cs" autocomplete="off" value="1050" data-usd="31.99"> 1050
+                </label>
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" class="buy-cs" autocomplete="off" value="500" data-usd="16.99"> 500
+                </label>
+              </div>
             </div>
           </div>
-          <div class="col">
+          <div class="col-12 col-sm-6">
             <h3>5★ Pulled</h3>
             <div id="pulled-five"></div>
           </div>
@@ -280,6 +294,15 @@
         // 1 - (1 - loneRate)^lonePulls * (1 - tenthRate)^tenthPulls
         return 1 - (Math.pow(1 - loneRate, lonePulls) * Math.pow(1 - tenthRate, tenthPulls));
     }
+    function updateCSAndDollars(){
+        let csUsed = (parseInt($("#counters").attr("data-ten-pull")) * 1000) + (parseInt($("#counters").attr("data-single-pull")) * 100);
+        $("#cs-used").text(new Intl.NumberFormat().format(csUsed));
+        let selectedCost = $("input.buy-cs:checked");
+        let infoMsg = "Chronos Stones are purchased in batches of " + selectedCost.val() + " at the regular price of $" + selectedCost.attr("data-usd");
+        $("#cs-spent-tooltip").attr("data-original-title", infoMsg);
+        let csToPurchase = Math.ceil(csUsed / parseInt(selectedCost.val()));
+        $("#currency-spent").text(new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(csToPurchase * parseFloat(selectedCost.attr("data-usd"))));
+    }
     function updateTotalsAndProbabilities(encType, charImages) {
         //update counters
         let counters = document.getElementById("counters").dataset;
@@ -294,10 +317,7 @@
             $("#ten-pull").text(counters["tenPull"]);
         }
         //update CS and $$ 
-        let csUsed = (parseInt(counters["tenPull"]) * 1000) + (parseInt(counters["singlePull"]) * 100);
-        $("#cs-used").text(new Intl.NumberFormat().format(csUsed));
-        let csToPurchase = Math.ceil(csUsed / 1050);
-        $("#currency-spent").text(new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(csToPurchase * 31.99));
+        updateCSAndDollars();
         //add new 5* pulls
         let fiveStarsAll = $("#five-stars").attr("data-all");
         let fiveStars = fiveStarsAll.split(",");
@@ -468,6 +488,8 @@
 
         $("#back-to-banners").on("click", resetEncounter);
         $("#reset-totals").on("click", resetTotalsAndProbabilities);
+
+        $("input.buy-cs").on("change click", updateCSAndDollars);
 
         $("#enc-one").on("click", function(e) {
             e.preventDefault();
