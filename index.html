@@ -8,7 +8,7 @@
   <title>Another Eden Encounter Simulator</title>
   <link rel="stylesheet" href="css/vendor/bootswatch-litera-4.4.1/bootstrap.min.css">
   <link rel="stylesheet" href="css/vendor/fontawesome-pro-5.14.0-web/css/all.min.css">
-  <link rel="stylesheet" href="css/encounter-sim.css?v=TjPF7BS4A1">
+  <link rel="stylesheet" href="css/encounter-sim.css?v=Wl4i6wxGVo">
   
   <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -46,6 +46,7 @@
                 <a href="#" id="official-rates" class="btn btn-secondary btn-block my-2" target="_blank">Official Encounter Rates <i class="fas fa-external-link-alt"></i></a>
                 <h4 class="d-none d-lg-block">Rate Up</h4>
                 <div id="rateup-chars" class="d-none d-lg-block"></div>
+                <div id="enc-notes" class="text-danger mt-2">* Encounter 10 allies using 1000 paid Chrono Stones. Guaranteed 5★ on the tenth encounter. 1 Time Only.</div>
               </div>
             </div>
           </div>
@@ -280,7 +281,7 @@
     function resetEncounter() {
         $("#rateup-chars").html("");
         currentEnc = {};
-        $("#enc-one").prop("disabled", true).html(getEncounterButtonHtml(null));
+        $("#enc-one").prop("disabled", true).html(getEncounterButtonHtml(null)).parent().show();
         $("#enc-ten").prop("disabled", true).html(getEncounterButtonHtml(null));
         clearEncounterResults();
         resetTotalsAndProbabilities();
@@ -431,7 +432,7 @@
 
         $('[data-toggle="tooltip"]').tooltip();
 
-        $.getJSON("character_images.json?v=TjPF7BS4A1", function(images) {
+        $.getJSON("character_images.json?v=Wl4i6wxGVo", function(images) {
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Loading character image map...")).toast("show"));
             charImages = images;
             $("#container").trigger("imageMapLoaded");
@@ -441,7 +442,7 @@
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Character image map load complete!")).toast("show"));
         });
 
-        $.getJSON("encounter_banners.json?v=TjPF7BS4A1", function(bannerList) {
+        $.getJSON("encounter_banners.json?v=Wl4i6wxGVo", function(bannerList) {
             if ("future" in bannerList) {
               $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Future")));
               $.each(bannerList["future"], function(i, banner) {
@@ -482,7 +483,13 @@
         $("#container").on("jsonLoaded", function() {
             setProbabilityRates(currentEnc, charImages);
             $("#single-pull-badge, #ten-pull-badge").hide();
-            $("#enc-one").prop("disabled", false).html(getEncounterButtonHtml("one"));
+            if ($("#banner-name").text().includes("Fateful")) {
+                $("#enc-one").parent().hide();
+                $("#enc-notes").show();
+            } else {
+                $("#enc-one").prop("disabled", false).html(getEncounterButtonHtml("one"));
+                $("#enc-notes").hide();
+            }
             $("#enc-ten").prop("disabled", false).html(getEncounterButtonHtml("ten"));
         });
 
@@ -503,6 +510,9 @@
         $("#enc-ten").on("click", function(e) {
             e.preventDefault();
             clearEncounterResults();
+            if ($("#banner-name").text().includes("Fateful")) {
+                resetTotalsAndProbabilities();
+            }
             let unit_pulled = {};
             for (let x = 0; x < 9; x++) {
                 unit_pulled = pullUnit(currentEnc, "lone");
