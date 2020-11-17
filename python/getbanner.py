@@ -101,9 +101,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/e1a64a05054a9fa7ff72940912e360a3?language=en'
-    banner_name = 'Song of Sword and Wings of Lost Paradise'
-    rate_up = ['Thillelille','Foran','Foran(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/30cb125e7de8c8842cb1ff2f9363ceb0?language=en'
+    banner_name = 'Fateful Encounter Victor'
+    rate_up = ['Victor']
 
     scrape_html(url)
 
