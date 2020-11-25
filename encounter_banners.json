@@ -1,6 +1,14 @@
 {
 	"limited" : [
 		{
+			"name" : "Fateful Encounter: Mistrare",
+			"banner_file" : "Fateful Encounter Mistrare.json",
+			"banner_image" : "Fateful Encounter Mistrare.png",
+			"banner_enddatetime" : "2020-12-25T14:59:59Z",
+			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/ee23a1f4944b0f057f42413a4cceeb7c?language=en",
+			"banner_short_name" : "fateful-mistrare"
+		},
+		{
 			"name" : "Fateful Encounter: Victor",
 			"banner_file" : "Fateful Encounter Victor.json",
 			"banner_image" : "Fateful Encounter Victor.png",
@@ -71,6 +79,14 @@
 			"banner_enddatetime" : "2020-10-17T14:59:59Z",
 			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/24f85a95c63b530c11bc36dd05509064?language=en",
 			"banner_short_name" : "fateful-hardy"
+		},
+		{
+			"name" : "Ally Encounter: Mistrare",
+			"banner_file" : "Ally Encounter Mistrare.json",
+			"banner_image" : "Ally Encounter Mistrare.png",
+			"banner_enddatetime" : "2020-12-25T14:59:59Z",
+			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/8b99fab99cfb882c346098830152b9e3?language=en",
+			"banner_short_name" : "mistrare"
 		},
 		{
 			"name" : "Ally Encounter: Holy Blessings Series",
@@ -320,7 +336,7 @@
 			"banner_file" : "Default Encounter.json",
 			"banner_image" : "Default Encounter.png",
 			"banner_enddatetime" : "2099-01-01T00:00:00Z",
-			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/55f33722828934f1fb08054336e4539b?language=en",
+			"official_link" : "https://api-us.another-eden.games/asset/lottery_notice/view/e34cdbc8bb11ba14837d5fefaabd381e?language=en",
 			"banner_short_name" : "default-encounter"
 		}
 	]
