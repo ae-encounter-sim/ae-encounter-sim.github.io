@@ -101,9 +101,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/ee23a1f4944b0f057f42413a4cceeb7c?language=en'
-    banner_name = 'Fateful Encounter Mistrare'
-    rate_up = ['Mistrare']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/d6a6fc0109813f2aa0960778ef35dc38?language=en'
+    banner_name = 'IDA 3 Fruit of Guidance and the Lost Digital Child'
+    rate_up = ['Hismena']
 
     scrape_html(url)
 
