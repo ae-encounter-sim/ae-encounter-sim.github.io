@@ -510,17 +510,25 @@
         $("#enc-ten").on("click", function(e) {
             e.preventDefault();
             clearEncounterResults();
+            let single_pulls = 9;
+            let tenth_pulls = 1;
             if ($("#banner-name").text().includes("Fateful")) {
                 resetTotalsAndProbabilities();
             }
+            if ($("#banner-name").text().includes("Twin Destinies")) {
+                single_pulls = 8;
+                tenth_pulls = 2;
+            }
             let unit_pulled = {};
-            for (let x = 0; x < 9; x++) {
+            for (let x = 0; x < single_pulls; x++) {
                 unit_pulled = pullUnit(currentEnc, "lone");
                 resultRow = x < 5 ? $("#encounter-results-row-1") : $("#encounter-results-row-2");
                 resultRow.append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
             }
-            unit_pulled = pullUnit(currentEnc, "tenth");
-            $("#encounter-results-row-2").append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
+            for (let y = 0; y < tenth_pulls; y++) {
+                unit_pulled = pullUnit(currentEnc, "tenth");
+                $("#encounter-results-row-2").append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
+            }
             updateTotalsAndProbabilities("tenth", charImages);
             $("#ten-pull-badge").show("fast");
         });
