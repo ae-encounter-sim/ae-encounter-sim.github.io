@@ -101,7 +101,7 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/2908e85f872909da31a720e13e9c135e?language=en'
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/b3e8374e1d342f1d211e5b4d03038508?language=en'
     banner_name = 'Default Encounter'
     rate_up = []
 
