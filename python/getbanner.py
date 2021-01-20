@@ -101,9 +101,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/ce353e71a6983768f78881671efebab3?language=en'
-    banner_name = 'Ally Encounter Yukino'
-    rate_up = ['Yukino','Shion(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/b41f339877fc46f9483d2558da211bc5?language=en'
+    banner_name = 'Part 2 Tales from the East Return of the Goddess of Time Part III The Twist'
+    rate_up = ['Heena','Felmina']
 
     scrape_html(url)
 
