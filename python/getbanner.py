@@ -101,9 +101,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/d3ce236602cbfa24ca15f5082ba86e38?language=en'
-    banner_name = 'Fateful Encounter Light of Amber Series'
-    rate_up = ['Thillelille','Isuka(AS)','Shanie(AS)','Nikeh(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/8f2d878562620e5cbe463bd840a6d9aa?language=en'
+    banner_name = 'Ally Encounter Western Mythos Series'
+    rate_up = ['Yipha','Mistrare']
 
     scrape_html(url)
 
