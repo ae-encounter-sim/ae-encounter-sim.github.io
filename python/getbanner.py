@@ -12,6 +12,13 @@ RATES = {}
 NUMBER_LINE_LONE, NUMBER_LINE_TENTH = [], []
 
 
+def percent_to_float(rate):
+    if not rate:
+        return None
+    else:
+        return float(rate.strip().replace('%','')) / 100.0
+
+
 def split_lone_and_tenth(rates):
     #some cells have both lone and tenth encounter rates in one, with tenth encounter in parens, like: 0.10%(2.84%)
     #return both lone and tenth, if no tenth return None
@@ -19,7 +26,7 @@ def split_lone_and_tenth(rates):
     tenth_list = re.findall('\(([^)]+)', rates)
     tenth = tenth_list[0] if tenth_list else None
 
-    return(lone, tenth)
+    return(percent_to_float(lone), percent_to_float(tenth))
 
 
 def merge_and_dump_rates(banner_name, rate_up):
@@ -34,8 +41,13 @@ def merge_and_dump_rates(banner_name, rate_up):
     print(filename, 'saved to disk!')
 
 
-def rounding(rate):
-    return str(round(rate, 2))
+def get_style_name(bs_tr, base_character):
+    if bs_tr.find('td', class_='Astyle'):
+        return base_character + '(AS)'
+    elif bs_tr.find('td', class_='Estyle'):
+        return base_character + '(ES)'
+    else:
+        return None
 
 
 def scrape_html(url):
@@ -46,58 +58,58 @@ def scrape_html(url):
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    last_character = ''
+    base_character = ''
     start_range_lone, start_range_tenth = 0.0, 0.0
 
     for table in soup.find_all('table', limit=1):
         for tr in table.find_all('tr'):
-            as_character = '' if not tr.find('td', class_='style') else last_character + '(AS)'
+            style_character = get_style_name(tr, base_character)
             for idx, td in enumerate(tr.find_all('td')):
                 if idx == 0: #character name
-                    character = td.string if not as_character else as_character
-                    last_character = character
+                    character = td.string.strip() if not style_character else style_character
+                    base_character = character if not character[-1] == ')' else base_character
                 if idx == 1 and td.string: #3 star rates
                     NUMBER_LINE_LONE.append({
                         'name' : character,
                         'rarity' : 3,
                         'start_range' : start_range_lone,
-                        'end_range' : start_range_lone + (float(td.string[:-1]) / 100)
+                        'end_range' : start_range_lone + percent_to_float(td.string)
                     })
-                    start_range_lone += (float(td.string[:-1]) / 100)
+                    start_range_lone += percent_to_float(td.string)
                 if idx == 2 and td.string: #4 star rates
                     lone, tenth = split_lone_and_tenth(td.string)
                     NUMBER_LINE_LONE.append({
                         'name' : character,
                         'rarity' : 4,
                         'start_range' : start_range_lone,
-                        'end_range' : start_range_lone + (float(lone[:-1]) / 100)
+                        'end_range' : start_range_lone + lone
                     })
-                    start_range_lone += (float(lone[:-1]) / 100)
+                    start_range_lone += lone
                     if tenth:
                         NUMBER_LINE_TENTH.append({
                             'name' : character,
                             'rarity' : 4,
                             'start_range' : start_range_tenth,
-                            'end_range' : start_range_tenth + (float(tenth[:-1]) / 100)
+                            'end_range' : start_range_tenth + tenth
                         })
-                        start_range_tenth += (float(tenth[:-1]) / 100)
+                        start_range_tenth += tenth
                 if idx == 3 and td.string: #5 star rates
                     lone, tenth = split_lone_and_tenth(td.string)
                     NUMBER_LINE_LONE.append({
                         'name' : character,
                         'rarity' : 5,
                         'start_range' : start_range_lone,
-                        'end_range' : start_range_lone + (float(lone[:-1]) / 100)
+                        'end_range' : start_range_lone + lone
                     })
-                    start_range_lone += (float(lone[:-1]) / 100)
+                    start_range_lone += lone
                     if tenth:
                         NUMBER_LINE_TENTH.append({
                             'name' : character,
                             'rarity' : 5,
                             'start_range' : start_range_tenth,
-                            'end_range' : start_range_tenth + (float(tenth[:-1]) / 100)
+                            'end_range' : start_range_tenth + tenth
                         })
-                        start_range_tenth += (float(tenth[:-1]) / 100)
+                        start_range_tenth += tenth
 
 
 def main():
