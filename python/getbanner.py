@@ -42,7 +42,7 @@ def merge_and_dump_rates(banner_name, rate_up):
 
 
 def get_style_name(bs_tr, base_character):
-    if bs_tr.find('td', class_='Astyle'):
+    if bs_tr.find('td', class_='Astyle') or bs_tr.find('td', class_='Astyle2') or bs_tr.find('td', class_='style'):
         return base_character + '(AS)'
     elif bs_tr.find('td', class_='Estyle'):
         return base_character + '(ES)'
@@ -113,9 +113,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a7c1ca9aa71e0a30d8f2bedbbd26be29?language=en'
-    banner_name = 'Fateful Encounter Seven Days Encounter Laclair AS'
-    rate_up = ['Laclair(AS)','Zeviro','Nikeh(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/173903e9f636d3528ba995d7677d3ebe?language=en'
+    banner_name = 'Ally Encounter Magic Attack Series 2021 June'
+    rate_up = ['Rosetta(AS)','Dunarith(AS)','Radica(AS)','Myrus(AS)','Mighty(AS)']
 
     scrape_html(url)
 
