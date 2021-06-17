@@ -113,9 +113,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/173903e9f636d3528ba995d7677d3ebe?language=en'
-    banner_name = 'Ally Encounter Magic Attack Series 2021 June'
-    rate_up = ['Rosetta(AS)','Dunarith(AS)','Radica(AS)','Myrus(AS)','Mighty(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/222e046ee1c60cfee19939ead98209ba?language=en'
+    banner_name = 'Fateful Encounter Susanoo'
+    rate_up = ['Shigure','Shigure(AS)']
 
     scrape_html(url)
 
