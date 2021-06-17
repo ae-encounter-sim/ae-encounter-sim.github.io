@@ -8,7 +8,7 @@
   <title>Another Eden Encounter Simulator</title>
   <link rel="stylesheet" href="css/vendor/bootswatch-litera-4.4.1/bootstrap.min.css">
   <link rel="stylesheet" href="css/vendor/fontawesome-pro-5.14.0-web/css/all.min.css">
-  <link rel="stylesheet" href="css/encounter-sim.css?v=u2Y2Xmp8El">
+  <link rel="stylesheet" href="css/encounter-sim.css?v=G6Rqh97flz">
   
   <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -199,10 +199,13 @@
   <script src="js/vendor/bootstrap-4.4.1/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/binarysearch.js"></script>
   <script>
-    function createStars(rarity, maxRarity, isAS) {
+    function createStars(rarity, maxRarity, isAS, isES) {
         if (isAS) {
             let starAS = $("<img>").attr("src", "images/style.png").addClass("star");
             return [starAS, starAS.clone(), starAS.clone(), starAS.clone(), starAS.clone()];
+        } else if (isES) {
+            let starES = $("<img>").attr("src", "images/ex.png").addClass("star");
+            return [starES, starES.clone(), starES.clone(), starES.clone(), starES.clone()];
         } else {
             let starOn = $("<img>").attr("src", "images/on.png").addClass("star");
             let starArray = [];
@@ -221,7 +224,7 @@
             let imgPath = "images/characters/party_portrait/" + charId + "/" + charId + charImages[name][String(rarity)] + ".png";
             let divWrapper = $("<div></div>").addClass("img-wrap d-block mx-auto");
 
-            let divRarity = $("<div></div>").addClass("overlay rarity-overlay d-flex align-items-center justify-content-center").append(createStars(rarity, charImages[name]["max_rarity"], ("AS" in charImages[name])))
+            let divRarity = $("<div></div>").addClass("overlay rarity-overlay d-flex align-items-center justify-content-center").append(createStars(rarity, charImages[name]["max_rarity"], ("AS" in charImages[name]),("ES" in charImages[name])))
             return divWrapper.append($("<img>").attr("src", imgPath).addClass("character")).append($("<span></span>").addClass("overlay name-overlay").html(name)).append(divRarity);
         } else {
             return $("<div>Character not found!</div>");
@@ -358,7 +361,7 @@
         //find 5* banner units and set base character names
         encounter["rate_up"].forEach(function(name){
             if (charImages[name]["max_rarity"] === 5) {
-                if (name.includes("(AS)")) {
+                if (name.includes("(AS)") || name.includes("(ES)")) {
                     characterRates[name.slice(0, -4)] = {};
                 } else {
                     characterRates[name] = {};
@@ -374,15 +377,22 @@
                             characterRates[character["name"]]["5"] = { "lone" : 0, "tenth" : 0 };
                         }
                         characterRates[character["name"]]["5"][loneOrTenth] = (character["end_range"] - character["start_range"]);
-                        overallRates[loneOrTenth]["bannerFive"] += (character["end_range"] - character["start_range"]);
                     } else if (character["name"].includes("(AS)") && character["name"].slice(0, -4) in characterRates) {
                         if (!("AS" in characterRates[character["name"].slice(0, -4)])) {
                             characterRates[character["name"].slice(0, -4)]["AS"] = { "lone" : 0, "tenth" : 0 };
                         }
                         characterRates[character["name"].slice(0, -4)]["AS"][loneOrTenth] = (character["end_range"] - character["start_range"]);
-                        overallRates[loneOrTenth]["bannerFive"] += (character["end_range"] - character["start_range"]);
+                    } else if (character["name"].includes("(ES)") && character["name"].slice(0, -4) in characterRates) {
+                        if (!("ES" in characterRates[character["name"].slice(0, -4)])) {
+                            characterRates[character["name"].slice(0, -4)]["ES"] = { "lone" : 0, "tenth" : 0 };
+                        }
+                        characterRates[character["name"].slice(0, -4)]["ES"][loneOrTenth] = (character["end_range"] - character["start_range"]);
                     }
                     overallRates[loneOrTenth]["anyFive"] += (character["end_range"] - character["start_range"]);
+
+                    if (encounter["rate_up"].includes(character["name"])) {
+                        overallRates[loneOrTenth]["bannerFive"] += (character["end_range"] - character["start_range"]);
+                    }
                     
                 } else if (character["rarity"] === 4 && character["name"] in characterRates) {
                     if (!("4" in characterRates[character["name"]])) {
@@ -394,12 +404,17 @@
         })
         //create rows for rate up five stars with rates
         Object.keys(characterRates).forEach(function(character){
-            if ("5" in characterRates[character] && "AS" in characterRates[character]) {
+            if ("5" in characterRates[character] && "ES" in characterRates[character]) {
+                addCharacterProbabilityRow("Any " + character + " (4★, 5★, AS, or ES)", sumRatesPerType(characterRates[character]));
+            } else if ("5" in characterRates[character] && "AS" in characterRates[character]) {
                 addCharacterProbabilityRow("Any " + character + " (4★, 5★ or AS)", sumRatesPerType(characterRates[character]));
             } else if ("4" in characterRates[character] && "5" in characterRates[character]) {
                 addCharacterProbabilityRow("Any " + character + " (4★ or 5★)", sumRatesPerType(characterRates[character]));
             }
 
+            if ("ES" in characterRates[character] && encounter["rate_up"].includes(character+"(ES)")) {
+                addCharacterProbabilityRow("5★ " + character + " (ES)", [characterRates[character]["ES"]["lone"], characterRates[character]["ES"]["tenth"]]);
+            }
             if ("AS" in characterRates[character] && encounter["rate_up"].includes(character+"(AS)")) {
                 addCharacterProbabilityRow("5★ " + character + " (AS)", [characterRates[character]["AS"]["lone"], characterRates[character]["AS"]["tenth"]]);
             }
@@ -432,7 +447,7 @@
 
         $('[data-toggle="tooltip"]').tooltip();
 
-        $.getJSON("character_images.json?v=u2Y2Xmp8El", function(images) {
+        $.getJSON("character_images.json?v=G6Rqh97flz", function(images) {
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Loading character image map...")).toast("show"));
             charImages = images;
             $("#container").trigger("imageMapLoaded");
@@ -442,7 +457,7 @@
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Character image map load complete!")).toast("show"));
         });
 
-        $.getJSON("encounter_banners.json?v=u2Y2Xmp8El", function(bannerList) {
+        $.getJSON("encounter_banners.json?v=G6Rqh97flz", function(bannerList) {
             if ("future" in bannerList) {
               $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Future")));
               $.each(bannerList["future"], function(i, banner) {
