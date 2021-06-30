@@ -42,9 +42,9 @@ def merge_and_dump_rates(banner_name, rate_up):
 
 
 def get_style_name(bs_tr, base_character):
-    if bs_tr.find('td', class_='Astyle') or bs_tr.find('td', class_='Astyle2') or bs_tr.find('td', class_='style'):
+    if bs_tr.find('td', class_='Astyle') or bs_tr.find('td', class_='Astyle2') or bs_tr.find('td', class_='style') or bs_tr.find('td', class_='branch_style'):
         return base_character + '(AS)'
-    elif bs_tr.find('td', class_='Estyle'):
+    elif bs_tr.find('td', class_='Estyle') or bs_tr.find('td', class_='estyle'):
         return base_character + '(ES)'
     else:
         return None
