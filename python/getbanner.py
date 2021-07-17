@@ -113,9 +113,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/bf5a22c2717984b2794e15a204d548b0?language=en'
-    banner_name = 'Fateful Encounter Oscillating Earth Series'
-    rate_up = ['Tiramisu(AS)','Premaya','Bertrand','Ciel(AS)','Myrus','Toova(AS)','Lokido(AS)','Elga(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/1a6ab0e9b9e8d194dcc23f46b182ed46?language=en'
+    banner_name = 'Another Style Abyss Liberator'
+    rate_up = ['Thillelille','Thillelille(AS)']
 
     scrape_html(url)
 
