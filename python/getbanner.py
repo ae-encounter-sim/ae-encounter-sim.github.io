@@ -113,9 +113,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/46e86fcb0efe9cbce914a8ce9100824f?language=en'
-    banner_name = 'Mythos Song of Sword and Wings of Lost Paradise'
-    rate_up = ['Thillelille','Melina','Rosetta','Prai']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/8304f0ac36f779dc047430e67d628288?language=en'
+    banner_name = 'Return of the Goddess of Time Main Story 2 Tales from the East Part III Conclusion'
+    rate_up = ['Necoco','Tsukiha(ES)']
 
     scrape_html(url)
 
