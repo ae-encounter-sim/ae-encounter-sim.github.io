@@ -113,9 +113,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/8304f0ac36f779dc047430e67d628288?language=en'
-    banner_name = 'Return of the Goddess of Time Main Story 2 Tales from the East Part III Conclusion'
-    rate_up = ['Necoco','Tsukiha(ES)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/549c72eb50b6194d3fa5e1d4d2fcabf0?language=en'
+    banner_name = 'Ally Encounter Garambarrel'
+    rate_up = ['Garambarrel','Suzette(AS)']
 
     scrape_html(url)
 
