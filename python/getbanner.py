@@ -113,9 +113,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/e44747d7ef63a5f07a6b87da12376bbf?language=en'
-    banner_name = 'Another Style Tea Maiden'
-    rate_up = ['Myunfa(AS)','Radica','Ilulu']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a3032eee7da3990a9fb1b54898f5902f?language=en'
+    banner_name = 'Episode The Lost Tome and the Silver Unfading Flower'
+    rate_up = ['Hardy','Cynthia']
 
     scrape_html(url)
 
