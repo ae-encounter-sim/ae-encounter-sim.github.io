@@ -113,9 +113,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a3032eee7da3990a9fb1b54898f5902f?language=en'
-    banner_name = 'Episode The Lost Tome and the Silver Unfading Flower'
-    rate_up = ['Hardy','Cynthia']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/51dbac97e90ae5616724dd3dd03e8eb0?language=en'
+    banner_name = 'Fateful Encounter Encore Ovation Healers'
+    rate_up = ['Mariel','Dunarith','Yuna','Rosetta']
 
     scrape_html(url)
 
