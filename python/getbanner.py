@@ -56,7 +56,7 @@ def scrape_html(url):
     #should be html in unicode; .text = content of the response in unicode #http://docs.python-requests.org/en/master/api/#requests.Response
     html = my_request.text
 
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html, 'html5lib')
 
     base_character = ''
     start_range_lone, start_range_tenth = 0.0, 0.0
