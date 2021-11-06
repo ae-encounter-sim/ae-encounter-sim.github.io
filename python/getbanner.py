@@ -65,6 +65,9 @@ def scrape_html(url):
         for tr in table.find_all('tr'):
             style_character = get_style_name(tr, base_character)
             for idx, td in enumerate(tr.find_all('td')):
+                if td.find('span'):
+                    td.span.unwrap()
+                    td.string = ''.join(td.strings)
                 if idx == 0: #character name
                     character = td.string.strip() if not style_character else style_character
                     base_character = character if not character[-1] == ')' else base_character
@@ -113,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/05d6cae148285fd7b15a26c3ad7974ee?language=en'
-    banner_name = 'Fateful Encounter Seven Days Encounter Heena'
-    rate_up = ['Ruina(AS)','Heena','Veina']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/657dac76d1f530dd26893f29a2ce598f?language=en'
+    banner_name = 'Fateful Encounter Quintet of Swords and Wings'
+    rate_up = ['Melina(ES)','Rosetta(AS)','Thillelille(AS)','Mistrare','Milsha']
 
     scrape_html(url)
 
