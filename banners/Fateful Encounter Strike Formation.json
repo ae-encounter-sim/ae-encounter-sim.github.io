@@ -1,0 +1,1627 @@
+{
+    "name": "Fateful Encounter Strike Formation",
+    "rate_up": [
+        "Ilulu(AS)",
+        "Tsubame(AS)",
+        "Hismena(AS)",
+        "Tiramisu(AS)",
+        "Melissa",
+        "Melody",
+        "Garambarrel",
+        "Foran(AS)"
+    ],
+    "range_rows": {
+        "lone": [
+            {
+                "name": "Ilulu",
+                "rarity": 4,
+                "start_range": 0.0,
+                "end_range": 0.0006
+            },
+            {
+                "name": "Ilulu",
+                "rarity": 5,
+                "start_range": 0.0006,
+                "end_range": 0.0010999999999999998
+            },
+            {
+                "name": "Ilulu(AS)",
+                "rarity": 5,
+                "start_range": 0.0010999999999999998,
+                "end_range": 0.0013
+            },
+            {
+                "name": "Tsubame",
+                "rarity": 4,
+                "start_range": 0.0013,
+                "end_range": 0.0018999999999999998
+            },
+            {
+                "name": "Tsubame",
+                "rarity": 5,
+                "start_range": 0.0018999999999999998,
+                "end_range": 0.0024
+            },
+            {
+                "name": "Tsubame(AS)",
+                "rarity": 5,
+                "start_range": 0.0024,
+                "end_range": 0.0026
+            },
+            {
+                "name": "Hismena",
+                "rarity": 4,
+                "start_range": 0.0026,
+                "end_range": 0.0031
+            },
+            {
+                "name": "Hismena",
+                "rarity": 5,
+                "start_range": 0.0031,
+                "end_range": 0.0034
+            },
+            {
+                "name": "Hismena(AS)",
+                "rarity": 5,
+                "start_range": 0.0034,
+                "end_range": 0.0036
+            },
+            {
+                "name": "Tiramisu",
+                "rarity": 4,
+                "start_range": 0.0036,
+                "end_range": 0.0040999999999999995
+            },
+            {
+                "name": "Tiramisu",
+                "rarity": 5,
+                "start_range": 0.0040999999999999995,
+                "end_range": 0.004399999999999999
+            },
+            {
+                "name": "Tiramisu(AS)",
+                "rarity": 5,
+                "start_range": 0.004399999999999999,
+                "end_range": 0.004599999999999999
+            },
+            {
+                "name": "Melissa",
+                "rarity": 4,
+                "start_range": 0.004599999999999999,
+                "end_range": 0.004899999999999999
+            },
+            {
+                "name": "Melissa",
+                "rarity": 5,
+                "start_range": 0.004899999999999999,
+                "end_range": 0.005199999999999999
+            },
+            {
+                "name": "Melody",
+                "rarity": 4,
+                "start_range": 0.005199999999999999,
+                "end_range": 0.005499999999999999
+            },
+            {
+                "name": "Melody",
+                "rarity": 5,
+                "start_range": 0.005499999999999999,
+                "end_range": 0.005799999999999999
+            },
+            {
+                "name": "Garambarrel",
+                "rarity": 4,
+                "start_range": 0.005799999999999999,
+                "end_range": 0.006099999999999999
+            },
+            {
+                "name": "Garambarrel",
+                "rarity": 5,
+                "start_range": 0.006099999999999999,
+                "end_range": 0.006399999999999999
+            },
+            {
+                "name": "Foran",
+                "rarity": 3,
+                "start_range": 0.006399999999999999,
+                "end_range": 0.016499999999999997
+            },
+            {
+                "name": "Foran",
+                "rarity": 4,
+                "start_range": 0.016499999999999997,
+                "end_range": 0.020399999999999998
+            },
+            {
+                "name": "Foran(AS)",
+                "rarity": 5,
+                "start_range": 0.020399999999999998,
+                "end_range": 0.020599999999999997
+            },
+            {
+                "name": "Pizzica",
+                "rarity": 4,
+                "start_range": 0.020599999999999997,
+                "end_range": 0.0209
+            },
+            {
+                "name": "Pizzica",
+                "rarity": 5,
+                "start_range": 0.0209,
+                "end_range": 0.0212
+            },
+            {
+                "name": "Necoco",
+                "rarity": 4,
+                "start_range": 0.0212,
+                "end_range": 0.021500000000000002
+            },
+            {
+                "name": "Necoco",
+                "rarity": 5,
+                "start_range": 0.021500000000000002,
+                "end_range": 0.021800000000000003
+            },
+            {
+                "name": "Ewella",
+                "rarity": 4,
+                "start_range": 0.021800000000000003,
+                "end_range": 0.022100000000000005
+            },
+            {
+                "name": "Ewella",
+                "rarity": 5,
+                "start_range": 0.022100000000000005,
+                "end_range": 0.022400000000000007
+            },
+            {
+                "name": "Milsha",
+                "rarity": 4,
+                "start_range": 0.022400000000000007,
+                "end_range": 0.02270000000000001
+            },
+            {
+                "name": "Milsha",
+                "rarity": 5,
+                "start_range": 0.02270000000000001,
+                "end_range": 0.02300000000000001
+            },
+            {
+                "name": "Heena",
+                "rarity": 4,
+                "start_range": 0.02300000000000001,
+                "end_range": 0.02330000000000001
+            },
+            {
+                "name": "Heena",
+                "rarity": 5,
+                "start_range": 0.02330000000000001,
+                "end_range": 0.023600000000000013
+            },
+            {
+                "name": "Yukino",
+                "rarity": 4,
+                "start_range": 0.023600000000000013,
+                "end_range": 0.023900000000000015
+            },
+            {
+                "name": "Yukino",
+                "rarity": 5,
+                "start_range": 0.023900000000000015,
+                "end_range": 0.024200000000000017
+            },
+            {
+                "name": "Mistrare",
+                "rarity": 4,
+                "start_range": 0.024200000000000017,
+                "end_range": 0.02450000000000002
+            },
+            {
+                "name": "Mistrare",
+                "rarity": 5,
+                "start_range": 0.02450000000000002,
+                "end_range": 0.02480000000000002
+            },
+            {
+                "name": "Victor",
+                "rarity": 4,
+                "start_range": 0.02480000000000002,
+                "end_range": 0.02530000000000002
+            },
+            {
+                "name": "Victor",
+                "rarity": 5,
+                "start_range": 0.02530000000000002,
+                "end_range": 0.025600000000000022
+            },
+            {
+                "name": "Victor(AS)",
+                "rarity": 5,
+                "start_range": 0.025600000000000022,
+                "end_range": 0.02580000000000002
+            },
+            {
+                "name": "Thillelille",
+                "rarity": 4,
+                "start_range": 0.02580000000000002,
+                "end_range": 0.02630000000000002
+            },
+            {
+                "name": "Thillelille",
+                "rarity": 5,
+                "start_range": 0.02630000000000002,
+                "end_range": 0.026600000000000023
+            },
+            {
+                "name": "Thillelille(AS)",
+                "rarity": 5,
+                "start_range": 0.026600000000000023,
+                "end_range": 0.02680000000000002
+            },
+            {
+                "name": "Yipha",
+                "rarity": 4,
+                "start_range": 0.02680000000000002,
+                "end_range": 0.027300000000000022
+            },
+            {
+                "name": "Yipha",
+                "rarity": 5,
+                "start_range": 0.027300000000000022,
+                "end_range": 0.027600000000000024
+            },
+            {
+                "name": "Hardy",
+                "rarity": 4,
+                "start_range": 0.027600000000000024,
+                "end_range": 0.028100000000000024
+            },
+            {
+                "name": "Hardy",
+                "rarity": 5,
+                "start_range": 0.028100000000000024,
+                "end_range": 0.028400000000000026
+            },
+            {
+                "name": "Hardy(AS)",
+                "rarity": 5,
+                "start_range": 0.028400000000000026,
+                "end_range": 0.028600000000000025
+            },
+            {
+                "name": "Cynthia",
+                "rarity": 4,
+                "start_range": 0.028600000000000025,
+                "end_range": 0.029100000000000025
+            },
+            {
+                "name": "Cynthia",
+                "rarity": 5,
+                "start_range": 0.029100000000000025,
+                "end_range": 0.029400000000000027
+            },
+            {
+                "name": "Zeviro",
+                "rarity": 4,
+                "start_range": 0.029400000000000027,
+                "end_range": 0.029900000000000027
+            },
+            {
+                "name": "Zeviro",
+                "rarity": 5,
+                "start_range": 0.029900000000000027,
+                "end_range": 0.03020000000000003
+            },
+            {
+                "name": "Radias",
+                "rarity": 4,
+                "start_range": 0.03020000000000003,
+                "end_range": 0.03070000000000003
+            },
+            {
+                "name": "Radias",
+                "rarity": 5,
+                "start_range": 0.03070000000000003,
+                "end_range": 0.03100000000000003
+            },
+            {
+                "name": "Myunfa",
+                "rarity": 4,
+                "start_range": 0.03100000000000003,
+                "end_range": 0.03150000000000003
+            },
+            {
+                "name": "Myunfa",
+                "rarity": 5,
+                "start_range": 0.03150000000000003,
+                "end_range": 0.03180000000000003
+            },
+            {
+                "name": "Myunfa(AS)",
+                "rarity": 5,
+                "start_range": 0.03180000000000003,
+                "end_range": 0.03200000000000003
+            },
+            {
+                "name": "Kikyo",
+                "rarity": 4,
+                "start_range": 0.03200000000000003,
+                "end_range": 0.03250000000000003
+            },
+            {
+                "name": "Kikyo",
+                "rarity": 5,
+                "start_range": 0.03250000000000003,
+                "end_range": 0.03280000000000003
+            },
+            {
+                "name": "Premaya",
+                "rarity": 4,
+                "start_range": 0.03280000000000003,
+                "end_range": 0.03330000000000003
+            },
+            {
+                "name": "Premaya",
+                "rarity": 5,
+                "start_range": 0.03330000000000003,
+                "end_range": 0.03360000000000003
+            },
+            {
+                "name": "Dunarith",
+                "rarity": 4,
+                "start_range": 0.03360000000000003,
+                "end_range": 0.03410000000000003
+            },
+            {
+                "name": "Dunarith",
+                "rarity": 5,
+                "start_range": 0.03410000000000003,
+                "end_range": 0.034400000000000035
+            },
+            {
+                "name": "Dunarith(AS)",
+                "rarity": 5,
+                "start_range": 0.034400000000000035,
+                "end_range": 0.034600000000000034
+            },
+            {
+                "name": "Lovely",
+                "rarity": 4,
+                "start_range": 0.034600000000000034,
+                "end_range": 0.035100000000000034
+            },
+            {
+                "name": "Lovely",
+                "rarity": 5,
+                "start_range": 0.035100000000000034,
+                "end_range": 0.035400000000000036
+            },
+            {
+                "name": "Philo",
+                "rarity": 4,
+                "start_range": 0.035400000000000036,
+                "end_range": 0.035900000000000036
+            },
+            {
+                "name": "Philo",
+                "rarity": 5,
+                "start_range": 0.035900000000000036,
+                "end_range": 0.03620000000000004
+            },
+            {
+                "name": "Rosetta",
+                "rarity": 4,
+                "start_range": 0.03620000000000004,
+                "end_range": 0.03680000000000004
+            },
+            {
+                "name": "Rosetta",
+                "rarity": 5,
+                "start_range": 0.03680000000000004,
+                "end_range": 0.03730000000000004
+            },
+            {
+                "name": "Rosetta(AS)",
+                "rarity": 5,
+                "start_range": 0.03730000000000004,
+                "end_range": 0.03750000000000004
+            },
+            {
+                "name": "Shigure",
+                "rarity": 4,
+                "start_range": 0.03750000000000004,
+                "end_range": 0.038100000000000044
+            },
+            {
+                "name": "Shigure",
+                "rarity": 5,
+                "start_range": 0.038100000000000044,
+                "end_range": 0.038600000000000044
+            },
+            {
+                "name": "Shigure(AS)",
+                "rarity": 5,
+                "start_range": 0.038600000000000044,
+                "end_range": 0.03880000000000004
+            },
+            {
+                "name": "Biaka",
+                "rarity": 4,
+                "start_range": 0.03880000000000004,
+                "end_range": 0.039400000000000046
+            },
+            {
+                "name": "Biaka",
+                "rarity": 5,
+                "start_range": 0.039400000000000046,
+                "end_range": 0.03990000000000005
+            },
+            {
+                "name": "Radica",
+                "rarity": 4,
+                "start_range": 0.03990000000000005,
+                "end_range": 0.04050000000000005
+            },
+            {
+                "name": "Radica",
+                "rarity": 5,
+                "start_range": 0.04050000000000005,
+                "end_range": 0.04100000000000005
+            },
+            {
+                "name": "Radica(AS)",
+                "rarity": 5,
+                "start_range": 0.04100000000000005,
+                "end_range": 0.04120000000000005
+            },
+            {
+                "name": "Elga",
+                "rarity": 4,
+                "start_range": 0.04120000000000005,
+                "end_range": 0.04180000000000005
+            },
+            {
+                "name": "Elga",
+                "rarity": 5,
+                "start_range": 0.04180000000000005,
+                "end_range": 0.04230000000000005
+            },
+            {
+                "name": "Elga(AS)",
+                "rarity": 5,
+                "start_range": 0.04230000000000005,
+                "end_range": 0.04250000000000005
+            },
+            {
+                "name": "Claude",
+                "rarity": 4,
+                "start_range": 0.04250000000000005,
+                "end_range": 0.043100000000000055
+            },
+            {
+                "name": "Claude",
+                "rarity": 5,
+                "start_range": 0.043100000000000055,
+                "end_range": 0.043600000000000055
+            },
+            {
+                "name": "Claude(AS)",
+                "rarity": 5,
+                "start_range": 0.043600000000000055,
+                "end_range": 0.043800000000000054
+            },
+            {
+                "name": "Myrus",
+                "rarity": 4,
+                "start_range": 0.043800000000000054,
+                "end_range": 0.04440000000000006
+            },
+            {
+                "name": "Myrus",
+                "rarity": 5,
+                "start_range": 0.04440000000000006,
+                "end_range": 0.04490000000000006
+            },
+            {
+                "name": "Myrus(AS)",
+                "rarity": 5,
+                "start_range": 0.04490000000000006,
+                "end_range": 0.04510000000000006
+            },
+            {
+                "name": "Melina",
+                "rarity": 4,
+                "start_range": 0.04510000000000006,
+                "end_range": 0.04570000000000006
+            },
+            {
+                "name": "Melina",
+                "rarity": 5,
+                "start_range": 0.04570000000000006,
+                "end_range": 0.04620000000000006
+            },
+            {
+                "name": "Melina(AS)",
+                "rarity": 5,
+                "start_range": 0.04620000000000006,
+                "end_range": 0.04640000000000006
+            },
+            {
+                "name": "Melina(ES)",
+                "rarity": 5,
+                "start_range": 0.04640000000000006,
+                "end_range": 0.04660000000000006
+            },
+            {
+                "name": "Nagi",
+                "rarity": 4,
+                "start_range": 0.04660000000000006,
+                "end_range": 0.04720000000000006
+            },
+            {
+                "name": "Nagi",
+                "rarity": 5,
+                "start_range": 0.04720000000000006,
+                "end_range": 0.04770000000000006
+            },
+            {
+                "name": "Nagi(AS)",
+                "rarity": 5,
+                "start_range": 0.04770000000000006,
+                "end_range": 0.04790000000000006
+            },
+            {
+                "name": "Isuka",
+                "rarity": 4,
+                "start_range": 0.04790000000000006,
+                "end_range": 0.048500000000000064
+            },
+            {
+                "name": "Isuka",
+                "rarity": 5,
+                "start_range": 0.048500000000000064,
+                "end_range": 0.049000000000000064
+            },
+            {
+                "name": "Isuka(AS)",
+                "rarity": 5,
+                "start_range": 0.049000000000000064,
+                "end_range": 0.04920000000000006
+            },
+            {
+                "name": "Suzette",
+                "rarity": 4,
+                "start_range": 0.04920000000000006,
+                "end_range": 0.049800000000000066
+            },
+            {
+                "name": "Suzette",
+                "rarity": 5,
+                "start_range": 0.049800000000000066,
+                "end_range": 0.05030000000000007
+            },
+            {
+                "name": "Suzette(AS)",
+                "rarity": 5,
+                "start_range": 0.05030000000000007,
+                "end_range": 0.050500000000000066
+            },
+            {
+                "name": "Shion",
+                "rarity": 4,
+                "start_range": 0.050500000000000066,
+                "end_range": 0.05110000000000007
+            },
+            {
+                "name": "Shion",
+                "rarity": 5,
+                "start_range": 0.05110000000000007,
+                "end_range": 0.05160000000000007
+            },
+            {
+                "name": "Shion(AS)",
+                "rarity": 5,
+                "start_range": 0.05160000000000007,
+                "end_range": 0.05180000000000007
+            },
+            {
+                "name": "Hozuki",
+                "rarity": 4,
+                "start_range": 0.05180000000000007,
+                "end_range": 0.05240000000000007
+            },
+            {
+                "name": "Hozuki",
+                "rarity": 5,
+                "start_range": 0.05240000000000007,
+                "end_range": 0.05290000000000007
+            },
+            {
+                "name": "Hozuki(AS)",
+                "rarity": 5,
+                "start_range": 0.05290000000000007,
+                "end_range": 0.05310000000000007
+            },
+            {
+                "name": "Dewey",
+                "rarity": 4,
+                "start_range": 0.05310000000000007,
+                "end_range": 0.053700000000000074
+            },
+            {
+                "name": "Dewey",
+                "rarity": 5,
+                "start_range": 0.053700000000000074,
+                "end_range": 0.054200000000000075
+            },
+            {
+                "name": "Veina",
+                "rarity": 4,
+                "start_range": 0.054200000000000075,
+                "end_range": 0.05480000000000008
+            },
+            {
+                "name": "Veina",
+                "rarity": 5,
+                "start_range": 0.05480000000000008,
+                "end_range": 0.05530000000000008
+            },
+            {
+                "name": "Veina(AS)",
+                "rarity": 5,
+                "start_range": 0.05530000000000008,
+                "end_range": 0.05550000000000008
+            },
+            {
+                "name": "Renri",
+                "rarity": 4,
+                "start_range": 0.05550000000000008,
+                "end_range": 0.05610000000000008
+            },
+            {
+                "name": "Renri",
+                "rarity": 5,
+                "start_range": 0.05610000000000008,
+                "end_range": 0.05660000000000008
+            },
+            {
+                "name": "Renri(AS)",
+                "rarity": 5,
+                "start_range": 0.05660000000000008,
+                "end_range": 0.05680000000000008
+            },
+            {
+                "name": "Shannon",
+                "rarity": 4,
+                "start_range": 0.05680000000000008,
+                "end_range": 0.05740000000000008
+            },
+            {
+                "name": "Shannon",
+                "rarity": 5,
+                "start_range": 0.05740000000000008,
+                "end_range": 0.05790000000000008
+            },
+            {
+                "name": "Shannon(AS)",
+                "rarity": 5,
+                "start_range": 0.05790000000000008,
+                "end_range": 0.05810000000000008
+            },
+            {
+                "name": "Tsukiha",
+                "rarity": 4,
+                "start_range": 0.05810000000000008,
+                "end_range": 0.058700000000000085
+            },
+            {
+                "name": "Tsukiha",
+                "rarity": 5,
+                "start_range": 0.058700000000000085,
+                "end_range": 0.059200000000000086
+            },
+            {
+                "name": "Tsukiha(AS)",
+                "rarity": 5,
+                "start_range": 0.059200000000000086,
+                "end_range": 0.059400000000000085
+            },
+            {
+                "name": "Tsukiha(ES)",
+                "rarity": 5,
+                "start_range": 0.059400000000000085,
+                "end_range": 0.05960000000000008
+            },
+            {
+                "name": "Felmina",
+                "rarity": 4,
+                "start_range": 0.05960000000000008,
+                "end_range": 0.06020000000000009
+            },
+            {
+                "name": "Felmina",
+                "rarity": 5,
+                "start_range": 0.06020000000000009,
+                "end_range": 0.06070000000000009
+            },
+            {
+                "name": "Felmina(AS)",
+                "rarity": 5,
+                "start_range": 0.06070000000000009,
+                "end_range": 0.060900000000000086
+            },
+            {
+                "name": "Bertrand",
+                "rarity": 4,
+                "start_range": 0.060900000000000086,
+                "end_range": 0.06150000000000009
+            },
+            {
+                "name": "Bertrand",
+                "rarity": 5,
+                "start_range": 0.06150000000000009,
+                "end_range": 0.06200000000000009
+            },
+            {
+                "name": "Bertrand(AS)",
+                "rarity": 5,
+                "start_range": 0.06200000000000009,
+                "end_range": 0.06220000000000009
+            },
+            {
+                "name": "Shanie",
+                "rarity": 4,
+                "start_range": 0.06220000000000009,
+                "end_range": 0.06280000000000009
+            },
+            {
+                "name": "Shanie",
+                "rarity": 5,
+                "start_range": 0.06280000000000009,
+                "end_range": 0.06330000000000009
+            },
+            {
+                "name": "Shanie(AS)",
+                "rarity": 5,
+                "start_range": 0.06330000000000009,
+                "end_range": 0.0635000000000001
+            },
+            {
+                "name": "Cetie",
+                "rarity": 4,
+                "start_range": 0.0635000000000001,
+                "end_range": 0.0641000000000001
+            },
+            {
+                "name": "Cetie",
+                "rarity": 5,
+                "start_range": 0.0641000000000001,
+                "end_range": 0.0646000000000001
+            },
+            {
+                "name": "Cetie(AS)",
+                "rarity": 5,
+                "start_range": 0.0646000000000001,
+                "end_range": 0.06480000000000011
+            },
+            {
+                "name": "Ewan",
+                "rarity": 4,
+                "start_range": 0.06480000000000011,
+                "end_range": 0.06540000000000011
+            },
+            {
+                "name": "Ewan",
+                "rarity": 5,
+                "start_range": 0.06540000000000011,
+                "end_range": 0.06590000000000011
+            },
+            {
+                "name": "Ewan(AS)",
+                "rarity": 5,
+                "start_range": 0.06590000000000011,
+                "end_range": 0.06610000000000012
+            },
+            {
+                "name": "Yuna",
+                "rarity": 4,
+                "start_range": 0.06610000000000012,
+                "end_range": 0.06670000000000012
+            },
+            {
+                "name": "Yuna",
+                "rarity": 5,
+                "start_range": 0.06670000000000012,
+                "end_range": 0.06720000000000012
+            },
+            {
+                "name": "Yuna(AS)",
+                "rarity": 5,
+                "start_range": 0.06720000000000012,
+                "end_range": 0.06740000000000013
+            },
+            {
+                "name": "Laclair",
+                "rarity": 4,
+                "start_range": 0.06740000000000013,
+                "end_range": 0.06800000000000013
+            },
+            {
+                "name": "Laclair",
+                "rarity": 5,
+                "start_range": 0.06800000000000013,
+                "end_range": 0.06850000000000013
+            },
+            {
+                "name": "Laclair(AS)",
+                "rarity": 5,
+                "start_range": 0.06850000000000013,
+                "end_range": 0.06870000000000014
+            },
+            {
+                "name": "Lokido",
+                "rarity": 4,
+                "start_range": 0.06870000000000014,
+                "end_range": 0.06930000000000014
+            },
+            {
+                "name": "Lokido",
+                "rarity": 5,
+                "start_range": 0.06930000000000014,
+                "end_range": 0.06980000000000014
+            },
+            {
+                "name": "Lokido(AS)",
+                "rarity": 5,
+                "start_range": 0.06980000000000014,
+                "end_range": 0.07000000000000015
+            },
+            {
+                "name": "Toova",
+                "rarity": 4,
+                "start_range": 0.07000000000000015,
+                "end_range": 0.07060000000000015
+            },
+            {
+                "name": "Toova",
+                "rarity": 5,
+                "start_range": 0.07060000000000015,
+                "end_range": 0.07110000000000015
+            },
+            {
+                "name": "Toova(AS)",
+                "rarity": 5,
+                "start_range": 0.07110000000000015,
+                "end_range": 0.07130000000000015
+            },
+            {
+                "name": "Mighty",
+                "rarity": 4,
+                "start_range": 0.07130000000000015,
+                "end_range": 0.07190000000000016
+            },
+            {
+                "name": "Mighty",
+                "rarity": 5,
+                "start_range": 0.07190000000000016,
+                "end_range": 0.07240000000000016
+            },
+            {
+                "name": "Mighty(AS)",
+                "rarity": 5,
+                "start_range": 0.07240000000000016,
+                "end_range": 0.07260000000000016
+            },
+            {
+                "name": "Mariel",
+                "rarity": 4,
+                "start_range": 0.07260000000000016,
+                "end_range": 0.07320000000000017
+            },
+            {
+                "name": "Mariel",
+                "rarity": 5,
+                "start_range": 0.07320000000000017,
+                "end_range": 0.07370000000000017
+            },
+            {
+                "name": "Mariel(AS)",
+                "rarity": 5,
+                "start_range": 0.07370000000000017,
+                "end_range": 0.07390000000000017
+            },
+            {
+                "name": "Anabel",
+                "rarity": 4,
+                "start_range": 0.07390000000000017,
+                "end_range": 0.07480000000000017
+            },
+            {
+                "name": "Anabel",
+                "rarity": 5,
+                "start_range": 0.07480000000000017,
+                "end_range": 0.07560000000000017
+            },
+            {
+                "name": "Anabel(AS)",
+                "rarity": 5,
+                "start_range": 0.07560000000000017,
+                "end_range": 0.07580000000000017
+            },
+            {
+                "name": "Nikeh",
+                "rarity": 3,
+                "start_range": 0.07580000000000017,
+                "end_range": 0.08590000000000017
+            },
+            {
+                "name": "Nikeh",
+                "rarity": 4,
+                "start_range": 0.08590000000000017,
+                "end_range": 0.08980000000000017
+            },
+            {
+                "name": "Nikeh(AS)",
+                "rarity": 5,
+                "start_range": 0.08980000000000017,
+                "end_range": 0.09000000000000018
+            },
+            {
+                "name": "Akane",
+                "rarity": 3,
+                "start_range": 0.09000000000000018,
+                "end_range": 0.10010000000000017
+            },
+            {
+                "name": "Akane",
+                "rarity": 4,
+                "start_range": 0.10010000000000017,
+                "end_range": 0.10400000000000018
+            },
+            {
+                "name": "Akane(AS)",
+                "rarity": 5,
+                "start_range": 0.10400000000000018,
+                "end_range": 0.10420000000000018
+            },
+            {
+                "name": "Ciel",
+                "rarity": 3,
+                "start_range": 0.10420000000000018,
+                "end_range": 0.11430000000000018
+            },
+            {
+                "name": "Ciel",
+                "rarity": 4,
+                "start_range": 0.11430000000000018,
+                "end_range": 0.11820000000000018
+            },
+            {
+                "name": "Ciel(AS)",
+                "rarity": 5,
+                "start_range": 0.11820000000000018,
+                "end_range": 0.11840000000000019
+            },
+            {
+                "name": "Ruina",
+                "rarity": 3,
+                "start_range": 0.11840000000000019,
+                "end_range": 0.1285000000000002
+            },
+            {
+                "name": "Ruina",
+                "rarity": 4,
+                "start_range": 0.1285000000000002,
+                "end_range": 0.13240000000000018
+            },
+            {
+                "name": "Ruina(AS)",
+                "rarity": 5,
+                "start_range": 0.13240000000000018,
+                "end_range": 0.1326000000000002
+            },
+            {
+                "name": "Chiyo",
+                "rarity": 3,
+                "start_range": 0.1326000000000002,
+                "end_range": 0.1427000000000002
+            },
+            {
+                "name": "Chiyo",
+                "rarity": 4,
+                "start_range": 0.1427000000000002,
+                "end_range": 0.14660000000000017
+            },
+            {
+                "name": "Chiyo(AS)",
+                "rarity": 5,
+                "start_range": 0.14660000000000017,
+                "end_range": 0.14680000000000018
+            },
+            {
+                "name": "Miyu",
+                "rarity": 3,
+                "start_range": 0.14680000000000018,
+                "end_range": 0.15690000000000018
+            },
+            {
+                "name": "Miyu",
+                "rarity": 4,
+                "start_range": 0.15690000000000018,
+                "end_range": 0.16080000000000017
+            },
+            {
+                "name": "Miyu(AS)",
+                "rarity": 5,
+                "start_range": 0.16080000000000017,
+                "end_range": 0.16100000000000017
+            },
+            {
+                "name": "Krervo",
+                "rarity": 3,
+                "start_range": 0.16100000000000017,
+                "end_range": 0.17430000000000018
+            },
+            {
+                "name": "Krervo",
+                "rarity": 4,
+                "start_range": 0.17430000000000018,
+                "end_range": 0.18250000000000016
+            },
+            {
+                "name": "Pom",
+                "rarity": 3,
+                "start_range": 0.18250000000000016,
+                "end_range": 0.19580000000000017
+            },
+            {
+                "name": "Pom",
+                "rarity": 4,
+                "start_range": 0.19580000000000017,
+                "end_range": 0.20400000000000018
+            },
+            {
+                "name": "Prai",
+                "rarity": 3,
+                "start_range": 0.20400000000000018,
+                "end_range": 0.2173000000000002
+            },
+            {
+                "name": "Prai",
+                "rarity": 4,
+                "start_range": 0.2173000000000002,
+                "end_range": 0.2255000000000002
+            },
+            {
+                "name": "Soira",
+                "rarity": 3,
+                "start_range": 0.2255000000000002,
+                "end_range": 0.2388000000000002
+            },
+            {
+                "name": "Soira",
+                "rarity": 4,
+                "start_range": 0.2388000000000002,
+                "end_range": 0.24700000000000022
+            },
+            {
+                "name": "Nero",
+                "rarity": 3,
+                "start_range": 0.24700000000000022,
+                "end_range": 0.2603000000000002
+            },
+            {
+                "name": "Nero",
+                "rarity": 4,
+                "start_range": 0.2603000000000002,
+                "end_range": 0.2685000000000002
+            },
+            {
+                "name": "Erina",
+                "rarity": 3,
+                "start_range": 0.2685000000000002,
+                "end_range": 0.28180000000000016
+            },
+            {
+                "name": "Erina",
+                "rarity": 4,
+                "start_range": 0.28180000000000016,
+                "end_range": 0.29000000000000015
+            },
+            {
+                "name": "Raven",
+                "rarity": 3,
+                "start_range": 0.29000000000000015,
+                "end_range": 0.30010000000000014
+            },
+            {
+                "name": "Raven",
+                "rarity": 4,
+                "start_range": 0.30010000000000014,
+                "end_range": 0.30400000000000016
+            },
+            {
+                "name": "Bivette",
+                "rarity": 3,
+                "start_range": 0.30400000000000016,
+                "end_range": 0.31410000000000016
+            },
+            {
+                "name": "Bivette",
+                "rarity": 4,
+                "start_range": 0.31410000000000016,
+                "end_range": 0.31800000000000017
+            },
+            {
+                "name": "Lele",
+                "rarity": 3,
+                "start_range": 0.31800000000000017,
+                "end_range": 0.32810000000000017
+            },
+            {
+                "name": "Lele",
+                "rarity": 4,
+                "start_range": 0.32810000000000017,
+                "end_range": 0.3320000000000002
+            },
+            {
+                "name": "Sevyn",
+                "rarity": 3,
+                "start_range": 0.3320000000000002,
+                "end_range": 0.3421000000000002
+            },
+            {
+                "name": "Sevyn",
+                "rarity": 4,
+                "start_range": 0.3421000000000002,
+                "end_range": 0.3460000000000002
+            },
+            {
+                "name": "Breeno",
+                "rarity": 3,
+                "start_range": 0.3460000000000002,
+                "end_range": 0.3561000000000002
+            },
+            {
+                "name": "Breeno",
+                "rarity": 4,
+                "start_range": 0.3561000000000002,
+                "end_range": 0.3600000000000002
+            },
+            {
+                "name": "Myron",
+                "rarity": 3,
+                "start_range": 0.3600000000000002,
+                "end_range": 0.3701000000000002
+            },
+            {
+                "name": "Myron",
+                "rarity": 4,
+                "start_range": 0.3701000000000002,
+                "end_range": 0.3740000000000002
+            },
+            {
+                "name": "Otoha",
+                "rarity": 3,
+                "start_range": 0.3740000000000002,
+                "end_range": 0.3841000000000002
+            },
+            {
+                "name": "Otoha",
+                "rarity": 4,
+                "start_range": 0.3841000000000002,
+                "end_range": 0.38800000000000023
+            },
+            {
+                "name": "Yio",
+                "rarity": 3,
+                "start_range": 0.38800000000000023,
+                "end_range": 0.39810000000000023
+            },
+            {
+                "name": "Yio",
+                "rarity": 4,
+                "start_range": 0.39810000000000023,
+                "end_range": 0.40200000000000025
+            },
+            {
+                "name": "Benedict",
+                "rarity": 3,
+                "start_range": 0.40200000000000025,
+                "end_range": 0.41210000000000024
+            },
+            {
+                "name": "Benedict",
+                "rarity": 4,
+                "start_range": 0.41210000000000024,
+                "end_range": 0.41600000000000026
+            },
+            {
+                "name": "Denny",
+                "rarity": 3,
+                "start_range": 0.41600000000000026,
+                "end_range": 0.42610000000000026
+            },
+            {
+                "name": "Denny",
+                "rarity": 4,
+                "start_range": 0.42610000000000026,
+                "end_range": 0.43000000000000027
+            },
+            {
+                "name": "Miranda",
+                "rarity": 3,
+                "start_range": 0.43000000000000027,
+                "end_range": 0.44010000000000027
+            },
+            {
+                "name": "Miranda",
+                "rarity": 4,
+                "start_range": 0.44010000000000027,
+                "end_range": 0.4440000000000003
+            },
+            {
+                "name": "Cyuca",
+                "rarity": 3,
+                "start_range": 0.4440000000000003,
+                "end_range": 0.4541000000000003
+            },
+            {
+                "name": "Cyuca",
+                "rarity": 4,
+                "start_range": 0.4541000000000003,
+                "end_range": 0.4580000000000003
+            },
+            {
+                "name": "Komachi",
+                "rarity": 3,
+                "start_range": 0.4580000000000003,
+                "end_range": 0.4681000000000003
+            },
+            {
+                "name": "Komachi",
+                "rarity": 4,
+                "start_range": 0.4681000000000003,
+                "end_range": 0.4720000000000003
+            },
+            {
+                "name": "Nomar",
+                "rarity": 3,
+                "start_range": 0.4720000000000003,
+                "end_range": 0.4821000000000003
+            },
+            {
+                "name": "Nomar",
+                "rarity": 4,
+                "start_range": 0.4821000000000003,
+                "end_range": 0.4860000000000003
+            },
+            {
+                "name": "Parisa",
+                "rarity": 3,
+                "start_range": 0.4860000000000003,
+                "end_range": 0.4961000000000003
+            },
+            {
+                "name": "Parisa",
+                "rarity": 4,
+                "start_range": 0.4961000000000003,
+                "end_range": 0.5000000000000003
+            },
+            {
+                "name": "Darunis",
+                "rarity": 3,
+                "start_range": 0.5000000000000003,
+                "end_range": 0.5101000000000003
+            },
+            {
+                "name": "Darunis",
+                "rarity": 4,
+                "start_range": 0.5101000000000003,
+                "end_range": 0.5140000000000003
+            },
+            {
+                "name": "Rovella",
+                "rarity": 3,
+                "start_range": 0.5140000000000003,
+                "end_range": 0.5241000000000003
+            },
+            {
+                "name": "Rovella",
+                "rarity": 4,
+                "start_range": 0.5241000000000003,
+                "end_range": 0.5280000000000004
+            },
+            {
+                "name": "Lingli",
+                "rarity": 3,
+                "start_range": 0.5280000000000004,
+                "end_range": 0.5381000000000004
+            },
+            {
+                "name": "Lingli",
+                "rarity": 4,
+                "start_range": 0.5381000000000004,
+                "end_range": 0.5420000000000004
+            },
+            {
+                "name": "Rufus",
+                "rarity": 3,
+                "start_range": 0.5420000000000004,
+                "end_range": 0.5521000000000004
+            },
+            {
+                "name": "Rufus",
+                "rarity": 4,
+                "start_range": 0.5521000000000004,
+                "end_range": 0.5560000000000004
+            },
+            {
+                "name": "May",
+                "rarity": 3,
+                "start_range": 0.5560000000000004,
+                "end_range": 0.5661000000000004
+            },
+            {
+                "name": "May",
+                "rarity": 4,
+                "start_range": 0.5661000000000004,
+                "end_range": 0.5700000000000004
+            },
+            {
+                "name": "Samora",
+                "rarity": 3,
+                "start_range": 0.5700000000000004,
+                "end_range": 0.5801000000000004
+            },
+            {
+                "name": "Samora",
+                "rarity": 4,
+                "start_range": 0.5801000000000004,
+                "end_range": 0.5840000000000004
+            },
+            {
+                "name": "Lovinia",
+                "rarity": 3,
+                "start_range": 0.5840000000000004,
+                "end_range": 0.5941000000000004
+            },
+            {
+                "name": "Lovinia",
+                "rarity": 4,
+                "start_range": 0.5941000000000004,
+                "end_range": 0.5980000000000004
+            },
+            {
+                "name": "Yazuki",
+                "rarity": 3,
+                "start_range": 0.5980000000000004,
+                "end_range": 0.6081000000000004
+            },
+            {
+                "name": "Yazuki",
+                "rarity": 4,
+                "start_range": 0.6081000000000004,
+                "end_range": 0.6120000000000004
+            },
+            {
+                "name": "Zilva",
+                "rarity": 3,
+                "start_range": 0.6120000000000004,
+                "end_range": 0.6221000000000004
+            },
+            {
+                "name": "Zilva",
+                "rarity": 4,
+                "start_range": 0.6221000000000004,
+                "end_range": 0.6260000000000004
+            },
+            {
+                "name": "Nonold",
+                "rarity": 3,
+                "start_range": 0.6260000000000004,
+                "end_range": 0.6361000000000004
+            },
+            {
+                "name": "Nonold",
+                "rarity": 4,
+                "start_range": 0.6361000000000004,
+                "end_range": 0.6400000000000005
+            },
+            {
+                "name": "Kilqia",
+                "rarity": 3,
+                "start_range": 0.6400000000000005,
+                "end_range": 0.6550000000000005
+            },
+            {
+                "name": "Naylia",
+                "rarity": 3,
+                "start_range": 0.6550000000000005,
+                "end_range": 0.6700000000000005
+            },
+            {
+                "name": "Menesia",
+                "rarity": 3,
+                "start_range": 0.6700000000000005,
+                "end_range": 0.6850000000000005
+            },
+            {
+                "name": "Rodeia",
+                "rarity": 3,
+                "start_range": 0.6850000000000005,
+                "end_range": 0.7000000000000005
+            },
+            {
+                "name": "Sauria",
+                "rarity": 3,
+                "start_range": 0.7000000000000005,
+                "end_range": 0.7150000000000005
+            },
+            {
+                "name": "Asia",
+                "rarity": 3,
+                "start_range": 0.7150000000000005,
+                "end_range": 0.7300000000000005
+            },
+            {
+                "name": "Urania",
+                "rarity": 3,
+                "start_range": 0.7300000000000005,
+                "end_range": 0.7450000000000006
+            },
+            {
+                "name": "Pasia",
+                "rarity": 3,
+                "start_range": 0.7450000000000006,
+                "end_range": 0.7600000000000006
+            },
+            {
+                "name": "Yssis",
+                "rarity": 3,
+                "start_range": 0.7600000000000006,
+                "end_range": 0.7750000000000006
+            },
+            {
+                "name": "Natore",
+                "rarity": 3,
+                "start_range": 0.7750000000000006,
+                "end_range": 0.7900000000000006
+            },
+            {
+                "name": "Tohme",
+                "rarity": 3,
+                "start_range": 0.7900000000000006,
+                "end_range": 0.8050000000000006
+            },
+            {
+                "name": "Esta",
+                "rarity": 3,
+                "start_range": 0.8050000000000006,
+                "end_range": 0.8200000000000006
+            },
+            {
+                "name": "Bria",
+                "rarity": 3,
+                "start_range": 0.8200000000000006,
+                "end_range": 0.8350000000000006
+            },
+            {
+                "name": "Nixa",
+                "rarity": 3,
+                "start_range": 0.8350000000000006,
+                "end_range": 0.8500000000000006
+            },
+            {
+                "name": "Emms",
+                "rarity": 3,
+                "start_range": 0.8500000000000006,
+                "end_range": 0.8650000000000007
+            },
+            {
+                "name": "Ctos",
+                "rarity": 3,
+                "start_range": 0.8650000000000007,
+                "end_range": 0.8800000000000007
+            },
+            {
+                "name": "Noome",
+                "rarity": 3,
+                "start_range": 0.8800000000000007,
+                "end_range": 0.8950000000000007
+            },
+            {
+                "name": "Uuo",
+                "rarity": 3,
+                "start_range": 0.8950000000000007,
+                "end_range": 0.9100000000000007
+            },
+            {
+                "name": "Koot",
+                "rarity": 3,
+                "start_range": 0.9100000000000007,
+                "end_range": 0.9250000000000007
+            },
+            {
+                "name": "Oor",
+                "rarity": 3,
+                "start_range": 0.9250000000000007,
+                "end_range": 0.9400000000000007
+            },
+            {
+                "name": "Een",
+                "rarity": 3,
+                "start_range": 0.9400000000000007,
+                "end_range": 0.9550000000000007
+            },
+            {
+                "name": "Saithe",
+                "rarity": 3,
+                "start_range": 0.9550000000000007,
+                "end_range": 0.9700000000000008
+            },
+            {
+                "name": "Tayme",
+                "rarity": 3,
+                "start_range": 0.9700000000000008,
+                "end_range": 0.9850000000000008
+            },
+            {
+                "name": "Toole",
+                "rarity": 3,
+                "start_range": 0.9850000000000008,
+                "end_range": 1.0000000000000007
+            }
+        ],
+        "tenth": [
+            {
+                "name": "Ilulu(AS)",
+                "rarity": 5,
+                "start_range": 0.0,
+                "end_range": 0.125
+            },
+            {
+                "name": "Tsubame(AS)",
+                "rarity": 5,
+                "start_range": 0.125,
+                "end_range": 0.25
+            },
+            {
+                "name": "Hismena(AS)",
+                "rarity": 5,
+                "start_range": 0.25,
+                "end_range": 0.375
+            },
+            {
+                "name": "Tiramisu(AS)",
+                "rarity": 5,
+                "start_range": 0.375,
+                "end_range": 0.5
+            },
+            {
+                "name": "Melissa",
+                "rarity": 5,
+                "start_range": 0.5,
+                "end_range": 0.625
+            },
+            {
+                "name": "Melody",
+                "rarity": 5,
+                "start_range": 0.625,
+                "end_range": 0.75
+            },
+            {
+                "name": "Garambarrel",
+                "rarity": 5,
+                "start_range": 0.75,
+                "end_range": 0.875
+            },
+            {
+                "name": "Foran(AS)",
+                "rarity": 5,
+                "start_range": 0.875,
+                "end_range": 1.0
+            }
+        ]
+    }
+}

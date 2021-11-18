@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/657dac76d1f530dd26893f29a2ce598f?language=en'
-    banner_name = 'Fateful Encounter Quintet of Swords and Wings'
-    rate_up = ['Melina(ES)','Rosetta(AS)','Thillelille(AS)','Mistrare','Milsha']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/44c13f77b229a7c50dbfe1423f0b654b?language=en'
+    banner_name = 'The 3000 Realm Ark and the Sea Abyss'
+    rate_up = ['Pizzica', 'Nagi(AS)']
 
     scrape_html(url)
 
