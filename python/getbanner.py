@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/b1dcc70f6555607e69686f430b97ece2?language=en'
-    banner_name = 'Adventurers Welcome 2021 2nd Edition'
-    rate_up = ['Anabel','Isuka','Yuna','Nagi','Ewan']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/bbbffd6b684982bf2eb0726679dcb4ef?language=en'
+    banner_name = 'Extra Style Cthulhu'
+    rate_up = ['Nagi','Nagi(ES)']
 
     scrape_html(url)
 
