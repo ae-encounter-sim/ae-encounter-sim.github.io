@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/1c0611577ed8d55bb71bd62d4002258f?language=en'
-    banner_name = 'Brilliant Encounter New Year 2022 Special'
-    rate_up = []
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/aa21efc9f535bf26c40feb43efde7ca8?language=en'
+    banner_name = 'Encounter Black Clad Swordsman Earth Force Edition'
+    rate_up = ['Isuka(Alter)','Myunfa','Milsha','Myrus(AS)']
 
     scrape_html(url)
 
