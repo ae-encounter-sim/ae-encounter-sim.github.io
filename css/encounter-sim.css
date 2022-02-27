@@ -14,7 +14,7 @@ div.img-wrap {
   width: 4.625rem;
   background: rgba(46, 22, 21, 0.75);
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   color: #D1CB89;
 }
 .name-overlay {
@@ -75,7 +75,7 @@ a[aria-expanded="true"] .info-closed, a[aria-expanded="false"] .info-open {
   }
   .overlay {
     width: 9.25rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
   .name-overlay {
     height: 2.5rem;
