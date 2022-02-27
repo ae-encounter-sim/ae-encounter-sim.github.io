@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/8fcfc24c022dd7b01fbeed247527a479?language=en'
-    banner_name = 'Manifestation Weapon Discovery Shion Mighty'
-    rate_up = ['Shion','Mighty']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/ec63bf69ea79f6615787314b97c1ee6e?language=en'
+    banner_name = 'Encounter Red Clad Flamemancer Fire Force Edition'
+    rate_up = ['Red Clad Flam.','Tsukiha(AS)','Renri(AS)','Radica(AS)']
 
     scrape_html(url)
 
