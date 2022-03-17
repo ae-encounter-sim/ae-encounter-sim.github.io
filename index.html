@@ -8,7 +8,7 @@
   <title>Another Eden Encounter Simulator</title>
   <link rel="stylesheet" href="css/vendor/bootswatch-litera-4.4.1/bootstrap.min.css">
   <link rel="stylesheet" href="css/vendor/fontawesome-pro-5.14.0-web/css/all.min.css">
-  <link rel="stylesheet" href="css/encounter-sim.css?v=Bs1SrFjiy2">
+  <link rel="stylesheet" href="css/encounter-sim.css?v=yAc50I9kHC">
   
   <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -447,7 +447,7 @@
 
         $('[data-toggle="tooltip"]').tooltip();
 
-        $.getJSON("character_images.json?v=Bs1SrFjiy2", function(images) {
+        $.getJSON("character_images.json?v=yAc50I9kHC", function(images) {
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Loading character image map...")).toast("show"));
             charImages = images;
             $("#container").trigger("imageMapLoaded");
@@ -457,7 +457,7 @@
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Character image map load complete!")).toast("show"));
         });
 
-        $.getJSON("encounter_banners.json?v=Bs1SrFjiy2", function(bannerList) {
+        $.getJSON("encounter_banners.json?v=yAc50I9kHC", function(bannerList) {
             if ("future" in bannerList) {
               $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Future")));
               $.each(bannerList["future"], function(i, banner) {
