@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/45851dd4857dd1b54afe72fb878402e7?language=en'
-    banner_name = 'Encounter Cyan Scyther Wind Force Edition'
-    rate_up = ['Cyan Scyther','Cynthia','Felmina','Claude(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/49da29750ee6fcc897f144238556741d?language=en'
+    banner_name = 'Manifestation Weapon Discovery Melina AS'
+    rate_up = ['Melina','Melina(AS)']
 
     scrape_html(url)
 
