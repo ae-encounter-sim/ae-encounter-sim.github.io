@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/693433b7175f21f2525d2ab748568760?language=en'
-    banner_name = 'Ally Encounter Flammelapis'
-    rate_up = ['Flammelapis','Garambarrel']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/b1bc3265a77bef4a427d7a473008046d?language=en'
+    banner_name = 'Encounter Violet Lancer Earth Force Edition'
+    rate_up = ['Violet Lancer','Nagi(AS)','Elga','Tsubame']
 
     scrape_html(url)
 
