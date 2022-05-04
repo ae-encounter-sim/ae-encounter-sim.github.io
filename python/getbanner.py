@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/42f0727bc7c90e126425e13d6689a236?language=en'
-    banner_name = 'Encounter Silver Striker Water Force Edition'
-    rate_up = ['Silver Striker','Anabel(AS)','Shanie(AS)','Shigure']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/f002a2eade53c67f062d38527e07c7ab?language=en'
+    banner_name = 'Brilliant Encounter JP 5th Anniversary Series'
+    rate_up = []
 
     scrape_html(url)
 
