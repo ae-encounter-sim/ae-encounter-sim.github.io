@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/8192e925357bc3b83058ce8f7f772bbf?language=en'
-    banner_name = 'Ally Encounter Bonds of Adventure Daisy Edition'
-    rate_up = ['Daisy','Necoco','Myunfa','Melina(ES)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/6a9899949e9dc836356d21cc9791166c?language=en'
+    banner_name = 'Extra Style Lucifer'
+    rate_up = ['Suzette','Suzette(ES)']
 
     scrape_html(url)
 
