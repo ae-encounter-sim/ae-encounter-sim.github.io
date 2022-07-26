@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/ea76337218b2d63bcc6e34ed38a75541?language=en'
-    banner_name = 'Wanderer in the Vortex'
-    rate_up = ['Orleya','Miyu','Miyu(ES)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/9dd45abaf64d5e8370434f857cbcd6f7?language=en'
+    banner_name = 'Another Style Flare Knight'
+    rate_up = ['Radias','Radias(AS)']
 
     scrape_html(url)
 
