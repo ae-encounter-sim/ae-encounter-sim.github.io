@@ -225,7 +225,7 @@
             let divWrapper = $("<div></div>").addClass("img-wrap d-block mx-auto");
 
             let divRarity = $("<div></div>").addClass("overlay rarity-overlay d-flex align-items-center justify-content-center").append(createStars(rarity, charImages[name]["max_rarity"], ("AS" in charImages[name]),("ES" in charImages[name])))
-            return divWrapper.append($("<img>").attr("src", imgPath).addClass("character")).append($("<span></span>").addClass("overlay name-overlay").html(name)).append(divRarity);
+            return divWrapper.append($("<img>").attr("src", imgPath).addClass("character")).append($("<span></span>").addClass("overlay name-overlay").toggleClass("name-too-long", name.length > 15).html(name)).append(divRarity);
         } else {
             return $("<div>Character not found!</div>");
         }
