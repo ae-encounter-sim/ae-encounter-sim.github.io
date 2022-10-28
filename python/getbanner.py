@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/7dd1023d8e6516846c9bdeeab627dd1c?language=en'
-    banner_name = 'Another Style Aristocrat'
-    rate_up = ['Soira','Soira(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a8f1ef3555f5c2e6808bfaf75466f12d?language=en'
+    banner_name = 'Brilliant Encounter JP Version Main Story Ch 3 Release'
+    rate_up = []
 
     scrape_html(url)
 
