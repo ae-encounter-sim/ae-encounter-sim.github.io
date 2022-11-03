@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a8f1ef3555f5c2e6808bfaf75466f12d?language=en'
-    banner_name = 'Brilliant Encounter JP Version Main Story Ch 3 Release'
-    rate_up = []
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a61a6f6ddde6049ec4f8765e2b9be116?language=en'
+    banner_name = 'Fateful Encounter Seven Days Encounter Toova Alter'
+    rate_up = ['Violet Lancer','Bertrand(AS)','Hismena(AS)']
 
     scrape_html(url)
 
