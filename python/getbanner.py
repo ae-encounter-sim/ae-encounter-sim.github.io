@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/d3ab5b42e0e8d9c993ada41c326bf088?language=en'
-    banner_name = 'Brilliant Encounter Special Winter 2022 Series'
-    rate_up = []
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/ac30f2c23e3ceeb856de8068c81b5310?language=en'
+    banner_name = 'Encounter Across Time Layers Moonlight Flower Hismena'
+    rate_up = ['"Moonlight Flower" Hismena','Nagi']
 
     scrape_html(url)
 
