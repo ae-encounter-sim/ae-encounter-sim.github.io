@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/ac30f2c23e3ceeb856de8068c81b5310?language=en'
-    banner_name = 'Encounter Across Time Layers Moonlight Flower Hismena'
-    rate_up = ['"Moonlight Flower" Hismena','Nagi']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/6433019886bedae03aa032928778e229?language=en'
+    banner_name = 'Another Style Fireside Cat'
+    rate_up = ['Necoco','Necoco(AS)']
 
     scrape_html(url)
 
