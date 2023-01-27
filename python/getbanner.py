@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/a6bcccfee246b9664772b71c2324aafe?language=en'
-    banner_name = 'Encounter Across Time Layers Noble Blossom Tsukiha'
-    rate_up = ['"Noble Blossom" Tsukiha','Tsukiha']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/990f15937f42bf31ae6080993d64932d?language=en'
+    banner_name = 'Re-encounter Ally Encounter Eva'
+    rate_up = ['Eva','Tiramisu']
 
     scrape_html(url)
 
