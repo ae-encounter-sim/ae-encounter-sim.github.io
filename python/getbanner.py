@@ -71,7 +71,7 @@ def scrape_html(url):
                 if idx == 0: #character name
                     character = td.string.strip() if not style_character else style_character
                     base_character = character if not character[-1] == ')' else base_character
-                if idx == 1 and td.string: #3 star rates
+                if idx == 2 and td.string: #3 star rates
                     NUMBER_LINE_LONE.append({
                         'name' : character,
                         'rarity' : 3,
@@ -79,7 +79,7 @@ def scrape_html(url):
                         'end_range' : start_range_lone + percent_to_float(td.string)
                     })
                     start_range_lone += percent_to_float(td.string)
-                if idx == 2 and td.string: #4 star rates
+                if idx == 3 and td.string: #4 star rates
                     lone, tenth = split_lone_and_tenth(td.string)
                     NUMBER_LINE_LONE.append({
                         'name' : character,
@@ -96,7 +96,7 @@ def scrape_html(url):
                             'end_range' : start_range_tenth + tenth
                         })
                         start_range_tenth += tenth
-                if idx == 3 and td.string: #5 star rates
+                if idx == 4 and td.string: #5 star rates
                     lone, tenth = split_lone_and_tenth(td.string)
                     NUMBER_LINE_LONE.append({
                         'name' : character,
