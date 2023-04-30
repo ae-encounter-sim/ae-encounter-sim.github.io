@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/470f47fb6dea29a9e2a1c239f59f9d0d?language=en'
-    banner_name = 'Extra Style Arcana'
-    rate_up = ['Mariel','Mariel(ES)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/f0998ab640b09698480a0110c095f502?language=en'
+    banner_name = 'Encounter Across Time Layers Vermillion Whip Hozuki'
+    rate_up = ['"Vermillion Whip" Hozuki','Shigure']
 
     scrape_html(url)
 
