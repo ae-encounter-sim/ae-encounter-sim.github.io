@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/f0998ab640b09698480a0110c095f502?language=en'
-    banner_name = 'Encounter Across Time Layers Vermillion Whip Hozuki'
-    rate_up = ['"Vermillion Whip" Hozuki','Shigure']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/3597fc14f3c1139f0d02bf0c7e3c9520?language=en'
+    banner_name = 'Fateful Encounter Seven Days Encounter May 2023'
+    rate_up = ['Myunfa(AS)','Daisy','Melina(AS)']
 
     scrape_html(url)
 
