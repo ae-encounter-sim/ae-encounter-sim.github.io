@@ -116,9 +116,9 @@ def scrape_html(url):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/0d6da72e7bf0009afbbba63b63bee8b7?language=en'
-    banner_name = 'Ally Encounter Phantom Thief'
-    rate_up = ['Dewey(AS)','Mariel(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/329e6c3fdf66a705e8987c9947f82057?language=en'
+    banner_name = 'Ally Encounter Shrouded Wisdom Series'
+    rate_up = ['Iphi','Flammelapis(AS)','"Jet Tactician" Shion','Milsha(AS)','Eva','Black Clad Sw.']
 
     scrape_html(url)
 
