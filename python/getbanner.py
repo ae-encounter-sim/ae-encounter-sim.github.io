@@ -50,7 +50,7 @@ def get_style_name(bs_tr, base_character):
         return None
 
 
-def scrape_html(url):
+def scrape_html(url, is_sidekick_col_on_banner):
     my_request = requests.get(url)
 
     #should be html in unicode; .text = content of the response in unicode #http://docs.python-requests.org/en/master/api/#requests.Response
@@ -60,6 +60,7 @@ def scrape_html(url):
 
     base_character = ''
     start_range_lone, start_range_tenth = 0.0, 0.0
+    start_rates_idx = 2 if is_sidekick_col_on_banner else 1
 
     for table in soup.find_all('table', limit=1):
         for tr in table.find_all('tr'):
@@ -71,7 +72,7 @@ def scrape_html(url):
                 if idx == 0: #character name
                     character = td.string.strip() if not style_character else style_character
                     base_character = character if not character[-1] == ')' else base_character
-                if idx == 2 and td.string: #3 star rates
+                if idx == start_rates_idx and td.string: #3 star rates
                     NUMBER_LINE_LONE.append({
                         'name' : character,
                         'rarity' : 3,
@@ -79,7 +80,7 @@ def scrape_html(url):
                         'end_range' : start_range_lone + percent_to_float(td.string)
                     })
                     start_range_lone += percent_to_float(td.string)
-                if idx == 3 and td.string: #4 star rates
+                if idx == (start_rates_idx + 1) and td.string: #4 star rates
                     lone, tenth = split_lone_and_tenth(td.string)
                     NUMBER_LINE_LONE.append({
                         'name' : character,
@@ -96,7 +97,7 @@ def scrape_html(url):
                             'end_range' : start_range_tenth + tenth
                         })
                         start_range_tenth += tenth
-                if idx == 4 and td.string: #5 star rates
+                if idx == (start_rates_idx + 2) and td.string: #5 star rates
                     lone, tenth = split_lone_and_tenth(td.string)
                     NUMBER_LINE_LONE.append({
                         'name' : character,
@@ -119,8 +120,9 @@ def main():
     url = 'https://api-us.another-eden.games/asset/lottery_notice/view/cd1153ed1a4c38b9bb457e214b854c86?language=en'
     banner_name = 'Wanderers Diary Chapter 5'
     rate_up = ['Mariel(ES)','Yipha(AS)']
+    is_sidekick_col_on_banner = True
 
-    scrape_html(url)
+    scrape_html(url, is_sidekick_col_on_banner)
 
     merge_and_dump_rates(banner_name, rate_up)
 
