@@ -117,9 +117,9 @@ def scrape_html(url, is_sidekick_col_on_banner):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/cd1153ed1a4c38b9bb457e214b854c86?language=en'
-    banner_name = 'Wanderers Diary Chapter 5'
-    rate_up = ['Mariel(ES)','Yipha(AS)']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/c5cce865e9196b3364db48bc70714327?language=en'
+    banner_name = 'Encounter Across Time Layers Beautiful Stranger Shannon'
+    rate_up = ['"Beautiful Stranger" Shannon','Shannon']
     is_sidekick_col_on_banner = True
 
     scrape_html(url, is_sidekick_col_on_banner)
