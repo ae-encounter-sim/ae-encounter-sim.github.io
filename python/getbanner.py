@@ -117,9 +117,9 @@ def scrape_html(url, is_sidekick_col_on_banner):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/c5cce865e9196b3364db48bc70714327?language=en'
-    banner_name = 'Encounter Across Time Layers Beautiful Stranger Shannon'
-    rate_up = ['"Beautiful Stranger" Shannon','Shannon']
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/aff0524815a372d3252784525a58a539?language=en'
+    banner_name = 'Fateful Encounter Twin Destinies Encounter Rebirth Edition June 2023'
+    rate_up = []
     is_sidekick_col_on_banner = True
 
     scrape_html(url, is_sidekick_col_on_banner)
