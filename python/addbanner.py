@@ -38,8 +38,6 @@ def split_lone_and_tenth(rates):
     Parse string for lone encounter rate and tenth encounter rate, often 
     represented like: 0.10%(2.84%), and return floats of each
     """
-    #some cells have both lone and tenth encounter rates in one, with tenth encounter in parens, like: 0.10%(2.84%)
-    #return both lone and tenth, if no tenth return None
     lone = rates[0:rates.find('(')] if rates.find('(') >= 0 else rates
     tenth_list = re.findall('\(([^)]+)', rates)
     tenth = tenth_list[0] if tenth_list else None
@@ -221,11 +219,15 @@ def process_images(new_banner, img_path, img_prefix, base_path):
         os.chdir(img_path)
 
     shorter_name = new_banner['banner_short_name'].replace('-','')
+    shorter_banner_name = new_banner['banner_short_name'].replace('-',' ').title().replace(' ','')
     for img in glob.glob(img_prefix + '*'):
         subprocess.run(['magick','mogrify','-format','png',img]) #convert fake pngs to actual pngs
         
         if img[:-4] == img_prefix:
-            new_img_name = img_prefix + '-' + new_banner['banner_short_name'].replace('-',' ').title().replace(' ','') + '.png'
+            if not new_banner['banner_short_name'] == 'fateful-seven-days':
+                new_img_name = img_prefix + '-' + shorter_banner_name + '.png'
+            else:
+                new_img_name = img_prefix + '-7DE' + datetime.now().strftime('%B%Y') + '.png'
             os.rename(img, new_img_name) #rename to standard convention
             copy_string = f'copy {new_img_name} {banner_img_folder}'
             os.popen(copy_string) #move banner art original to images/banners/ folder
@@ -240,11 +242,13 @@ def process_images(new_banner, img_path, img_prefix, base_path):
             copy_string = f'copy {img} {dest}'
             os.popen(copy_string)
 
-    normal_img = f'{img_prefix}.normal.png'
-    highlighted_img = f'{img_prefix}.highlighted.png'
-    combo_img = f'{img_prefix}.{shorter_name}.combo.png'
-    dest = os.path.join(banner_img_folder, combo_img)
-    subprocess.run(['magick','convert',normal_img,highlighted_img,'-append',dest]) #create sprite for banner selector
+    combo_img = None
+    if not new_banner['banner_short_name'] == 'fateful-seven-days':
+        normal_img = f'{img_prefix}.normal.png'
+        highlighted_img = f'{img_prefix}.highlighted.png'
+        combo_img = f'{img_prefix}.{shorter_name}.combo.png'
+        dest = os.path.join(banner_img_folder, combo_img)
+        subprocess.run(['magick','convert',normal_img,highlighted_img,'-append',dest]) #create sprite for banner selector
 
     return combo_img
 
