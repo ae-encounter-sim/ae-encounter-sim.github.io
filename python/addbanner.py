@@ -122,10 +122,10 @@ def scrape_html(url):
 
     rate_up = []
     pattern = re.compile(u'\u30FB')
-    for mid_dots in soup.find_all(string=pattern):
-        if not mid_dots.find_parent('p'):
-            rm_dot = re.sub(pattern, '', mid_dots.text).strip()
-            rate_up.append(parse_characters(rm_dot))
+    rate_up_div = soup.find_all('div', class_='section')[1]
+    for mid_dots in rate_up_div.find_all(string=pattern):
+        rm_dot = re.sub(pattern, '', mid_dots.text).strip()
+        rate_up.append(parse_characters(rm_dot))
 
     #Banner End Datetime (format codes: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
     avail_until = [av_unt for av_unt in soup.css.select('div.section > p')[0].stripped_strings if 'Available until' in av_unt]
@@ -330,6 +330,7 @@ def main():
     
     if combo_img:
         add_new_banner_css(base_path, combo_img, new_banner)
+        print('HTML and CSS updated for new banner')
     
         
 
