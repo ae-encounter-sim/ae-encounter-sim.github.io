@@ -120,15 +120,16 @@ def scrape_html(url):
 
     banner_name = ' '.join([parse_title(text) for text in soup.find('h2').stripped_strings])
 
+    section_divs = soup.find_all('div', class_='section')
+
     rate_up = []
-    pattern = re.compile(u'\u30FB')
-    rate_up_div = soup.find_all('div', class_='section')[1]
-    for mid_dots in rate_up_div.find_all(string=pattern):
-        rm_dot = re.sub(pattern, '', mid_dots.text).strip()
+    mid_dot_pattern = re.compile(u'\u30FB')
+    for mid_dots in section_divs[1].find_all(string=mid_dot_pattern):
+        rm_dot = re.sub(mid_dot_pattern, '', mid_dots.text).strip()
         rate_up.append(parse_characters(rm_dot))
 
     #Banner End Datetime (format codes: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
-    avail_until = [av_unt for av_unt in soup.css.select('div.section > p')[0].stripped_strings if 'Available until' in av_unt]
+    avail_until = [av_unt for av_unt in section_divs[0].find('p').stripped_strings if 'Available until' in av_unt]
     date_string = avail_until[0].replace('Available until ', '').replace(' (UTC)', '')
     end_time = datetime.strptime(date_string, '%H:%M %b %d, %Y')
 
