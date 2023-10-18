@@ -117,7 +117,7 @@ def scrape_html(url, is_sidekick_col_on_banner):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/659324abc6926b35af72e244a9c8dc0b?language=en'
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/bdf3bde9f0b3c10c45682e30a798a2bf?language=en'
     banner_name = 'Default Encounter'
     rate_up = []
     is_sidekick_col_on_banner = True
