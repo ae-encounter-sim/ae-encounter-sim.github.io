@@ -134,7 +134,7 @@ def scrape_html(url):
     end_time = datetime.strptime(date_string, '%H:%M %b %d, %Y')
 
     new_banner = {
-        'name' : banner_name,
+        'name' : banner_name.replace('Fateful Encounter', 'Fateful Encounter:'),
         'banner_file' : banner_name + '.json',
         'banner_image' : banner_name + '.png',
         'banner_enddatetime' : end_time.strftime('%Y-%m-%dT%H:%M:%SZ'),
