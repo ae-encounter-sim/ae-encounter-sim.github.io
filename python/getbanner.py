@@ -60,7 +60,7 @@ def scrape_html(url, is_sidekick_col_on_banner):
 
     base_character = ''
     start_range_lone, start_range_tenth = 0.0, 0.0
-    start_rates_idx = 2 if is_sidekick_col_on_banner else 1
+    start_rates_idx = 3 if is_sidekick_col_on_banner else 1
 
     for table in soup.find_all('table', limit=1):
         for tr in table.find_all('tr'):
@@ -117,7 +117,7 @@ def scrape_html(url, is_sidekick_col_on_banner):
 
 
 def main():
-    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/d11aa8ae644012f4e773cd983937b486?language=en'
+    url = 'https://api-us.another-eden.games/asset/lottery_notice/view/6e890291463aec17619e98951e0b0d11?language=en'
     banner_name = 'Default Encounter'
     rate_up = []
     is_sidekick_col_on_banner = True
