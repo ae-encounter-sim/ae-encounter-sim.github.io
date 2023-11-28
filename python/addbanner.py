@@ -142,19 +142,23 @@ def scrape_html(url):
         'banner_short_name' : banner_name.lower().replace(' ','-')
     }
 
-    #if Sidekicks column exists in rates table, increment starting index for pull rates
+    #if Sidekicks/Stellar Awak column exists in rates table, increment starting index for pull rates
     start_rates_idx = 1
     new_soup = BeautifulSoup('<div></div>', 'html5lib')
-    for tag in soup.find_all('th', class_='fifthtd'):
+    for tag in soup.find_all('th', class_='sixthtd'):
         new_soup.append(tag)
     if new_soup.css.select('th:nth-of-type(2)') and new_soup.css.select('th:nth-of-type(2)')[0].text == 'Sidekick':
+        start_rates_idx += 1
+    if new_soup.css.select('th:nth-of-type(3)') and new_soup.css.select('th:nth-of-type(3)')[0].text == 'Stellar Awakening':
         start_rates_idx += 1
 
     #Pull Rates
     base_character = ''
     start_range_lone, start_range_tenth = 0.0, 0.0
     number_line_lone, number_line_tenth = [], []
-    for table in soup.find_all('table', limit=1):
+    for table in soup.find_all('table', limit=2):
+        if table.css.select('th:first-of-type') and table.css.select('th:first-of-type')[0].text in ['', 'Class']: #Pick up bonus or re-encountering allies tables, skip
+            continue
         for tr in table.find_all('tr'):
             style_character = get_style_name(tr, base_character)
             for idx, td in enumerate(tr.find_all('td')):
