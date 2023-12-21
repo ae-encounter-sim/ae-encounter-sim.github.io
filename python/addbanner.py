@@ -126,7 +126,8 @@ def scrape_html(url):
     mid_dot_pattern = re.compile(u'\u30FB')
     for mid_dots in section_divs[1].find_all(string=mid_dot_pattern):
         rm_dot = re.sub(mid_dot_pattern, '', mid_dots.text).strip()
-        rate_up.append(parse_characters(rm_dot))
+        if 'Starchart' not in rm_dot:
+            rate_up.append(parse_characters(rm_dot))
 
     #Banner End Datetime (format codes: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
     avail_until = [av_unt for av_unt in section_divs[0].find('p').stripped_strings if 'Available until' in av_unt]
