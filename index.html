@@ -199,8 +199,11 @@
   <script src="js/vendor/bootstrap-4.4.1/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/binarysearch.js"></script>
   <script>
-    function createStars(rarity, maxRarity, isAS, isES) {
-        if (isAS) {
+    function createStars(rarity, maxRarity, isAS, isES, isPUB) {
+        if (isPUB && rarity == 5) {
+            let starPUB = $("<img>").attr("src", "images/zodiac_style.png").addClass("star"); 
+            return [starPUB, starPUB.clone(), starPUB.clone(), starPUB.clone(), starPUB.clone()];
+        } else if (isAS) {
             let starAS = $("<img>").attr("src", "images/style.png").addClass("star");
             return [starAS, starAS.clone(), starAS.clone(), starAS.clone(), starAS.clone()];
         } else if (isES) {
@@ -218,13 +221,13 @@
             return starArray;
         }
     }
-    function prepareImage(name, rarity, charImages) {
+    function prepareImage(name, rarity, charImages, pickUpBonus) {
         if (name in charImages) {
             let charId = charImages[name]["id"];
             let imgPath = "images/characters/party_portrait/" + charId + "/" + charId + charImages[name][String(rarity)] + ".png";
             let divWrapper = $("<div></div>").addClass("img-wrap d-block mx-auto");
 
-            let divRarity = $("<div></div>").addClass("overlay rarity-overlay d-flex align-items-center justify-content-center").append(createStars(rarity, charImages[name]["max_rarity"], ("AS" in charImages[name]),("ES" in charImages[name])))
+            let divRarity = $("<div></div>").addClass("overlay rarity-overlay d-flex align-items-center justify-content-center").append(createStars(rarity, charImages[name]["max_rarity"], ("AS" in charImages[name]),("ES" in charImages[name]), (pickUpBonus.includes(name))))
             return divWrapper.append($("<img>").attr("src", imgPath).addClass("character")).append($("<span></span>").addClass("overlay name-overlay").toggleClass("name-too-long", name.length > 15).html(name)).append(divRarity);
         } else {
             return $("<div>Character not found!</div>");
@@ -488,6 +491,9 @@
             let bannerToLoad = 'banners/' + $(this).attr("data-banner-file");
             $.getJSON(bannerToLoad, function(encounter) {
                 currentEnc = encounter;
+                if (!("pick_up_bonus" in encounter)) {
+                    currentEnc["pick_up_bonus"] = [];
+                }
                 $.each(encounter["rate_up"], function(i, character) {
                     $("#rateup-chars").append(getCommandImage(character, charImages));
                 });
@@ -517,7 +523,7 @@
             e.preventDefault();
             clearEncounterResults();
             let unit_pulled = pullUnit(currentEnc, "lone");
-            $("#encounter-results-row-1").html($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
+            $("#encounter-results-row-1").html($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages, currentEnc["pick_up_bonus"])));
             updateTotalsAndProbabilities("lone", charImages);
             $("#single-pull-badge").show("fast");
         });
@@ -539,11 +545,11 @@
             for (let x = 0; x < single_pulls; x++) {
                 unit_pulled = pullUnit(currentEnc, "lone");
                 resultRow = x < 5 ? $("#encounter-results-row-1") : $("#encounter-results-row-2");
-                resultRow.append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
+                resultRow.append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages, currentEnc["pick_up_bonus"])));
             }
             for (let y = 0; y < tenth_pulls; y++) {
                 unit_pulled = pullUnit(currentEnc, "tenth");
-                $("#encounter-results-row-2").append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages)));
+                $("#encounter-results-row-2").append($("<div></div>").addClass("col py-2").append(prepareImage(unit_pulled["name"], unit_pulled["rarity"], charImages, currentEnc["pick_up_bonus"])));
             }
             updateTotalsAndProbabilities("tenth", charImages);
             $("#ten-pull-badge").show("fast");

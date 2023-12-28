@@ -45,13 +45,14 @@ def split_lone_and_tenth(rates):
     return(percent_to_float(lone), percent_to_float(tenth))
 
 
-def merge_and_dump_rates(new_banner, rate_up, range_rows):
+def merge_and_dump_rates(new_banner, rate_up, range_rows, pick_up_bonus):
     """
     Combine banner attributes and dump json file to banners folder
     """
     full_banner = {
         'name' : new_banner['name'],
         'rate_up' : rate_up,
+        'pick_up_bonus' : pick_up_bonus,
         'range_rows' : range_rows
     }
     filename = os.path.join(os.getcwd(), os.pardir, 'banners', new_banner['banner_file'])
@@ -156,9 +157,12 @@ def scrape_html(url):
     #Pull Rates
     base_character = ''
     start_range_lone, start_range_tenth = 0.0, 0.0
-    number_line_lone, number_line_tenth = [], []
+    number_line_lone, number_line_tenth, pub_list = [], [], []
     for table in soup.find_all('table', limit=2):
-        if table.css.select('th:first-of-type') and table.css.select('th:first-of-type')[0].text in ['', 'Class']: #Pick up bonus or re-encountering allies tables, skip
+        if table.css.select('th:first-of-type') and table.css.select('th:first-of-type')[0].text in ['', 'Class']: #Pick up bonus or re-encountering allies tables
+            if table.css.select('th:first-of-type')[0].text == '': #Pick up bonus
+                for pick_up_char in table.css.select('td:first-of-type'):
+                    pub_list.append(parse_characters(pick_up_char.string.strip()))
             continue
         for tr in table.find_all('tr'):
             style_character = get_style_name(tr, base_character)
@@ -212,7 +216,7 @@ def scrape_html(url):
                         })
                         start_range_tenth += tenth
 
-    return (new_banner, {'lone' : number_line_lone, 'tenth' : number_line_tenth}, rate_up)
+    return (new_banner, {'lone' : number_line_lone, 'tenth' : number_line_tenth}, rate_up, pub_list)
 
 
 def process_images(new_banner, img_path, img_prefix, base_path):
@@ -311,15 +315,16 @@ def main():
     parser.add_argument('--img_prefix', type=int, help='Prefix number of images to process, e.g. 91015, 91032, etc.')
     args = parser.parse_args()
 
-    new_banner, range_rows, rate_up = scrape_html(args.url)
+    new_banner, range_rows, rate_up, pick_up_bonus = scrape_html(args.url)
 
     if args.short_name:
         new_banner['banner_short_name'] = args.short_name
 
     print('New Banner:', new_banner)
     print('Rate Up:', rate_up)
+    print('Pick Up Bonus:', pick_up_bonus)
 
-    merge_and_dump_rates(new_banner, rate_up, range_rows)
+    merge_and_dump_rates(new_banner, rate_up, range_rows, pick_up_bonus)
     insert_into_encounter_banners(new_banner)
     print('Added to encounter_banners.json!')
 
