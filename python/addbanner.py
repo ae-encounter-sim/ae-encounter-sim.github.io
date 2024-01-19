@@ -147,11 +147,14 @@ def scrape_html(url):
     #if Sidekicks/Stellar Awak column exists in rates table, increment starting index for pull rates
     start_rates_idx = 1
     new_soup = BeautifulSoup('<div></div>', 'html5lib')
-    for tag in soup.find_all('th', class_='sixthtd'):
-        new_soup.append(tag)
-    if new_soup.css.select('th:nth-of-type(2)') and new_soup.css.select('th:nth-of-type(2)')[0].text == 'Sidekick':
+    div = new_soup.find('div')
+    for th in soup.find_all('th', class_=['fifthtd','sixthtd']):
+        new_tag = new_soup.new_tag('th')
+        new_tag.string = th.string.strip()
+        div.append(new_tag)
+    if div.css.select('th:nth-of-type(2)') and div.css.select('th:nth-of-type(2)')[0].text.strip() in ['Sidekick','Stellar Awakening']:
         start_rates_idx += 1
-    if new_soup.css.select('th:nth-of-type(3)') and new_soup.css.select('th:nth-of-type(3)')[0].text == 'Stellar Awakening':
+    if div.css.select('th:nth-of-type(3)') and div.css.select('th:nth-of-type(3)')[0].text.strip() == 'Stellar Awakening':
         start_rates_idx += 1
 
     #Pull Rates
@@ -159,8 +162,8 @@ def scrape_html(url):
     start_range_lone, start_range_tenth = 0.0, 0.0
     number_line_lone, number_line_tenth, pub_list = [], [], []
     for table in soup.find_all('table', limit=2):
-        if table.css.select('th:first-of-type') and table.css.select('th:first-of-type')[0].text in ['', 'Class']: #Pick up bonus or re-encountering allies tables
-            if table.css.select('th:first-of-type')[0].text == '': #Pick up bonus
+        if table.css.select('th:first-of-type') and table.css.select('th:first-of-type')[0].text.strip() in ['', 'Class']: #Pick up bonus or re-encountering allies tables
+            if table.css.select('th:first-of-type')[0].text.strip() == '': #Pick up bonus
                 for pick_up_char in table.css.select('td:first-of-type'):
                     pub_list.append(parse_characters(pick_up_char.string.strip()))
             continue
