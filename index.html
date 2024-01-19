@@ -201,11 +201,14 @@
   <script>
     function createStars(rarity, maxRarity, isAS, isES, isPUB) {
         if (isPUB && rarity == 5 && isAS) {
-            let starPUBAS = $("<img>").attr("src", "images/zodiac_style_as.png").addClass("star"); 
-            return [starPUBAS, starPUBAS.clone(), starPUBAS.clone(), starPUBAS.clone(), starPUBAS.clone()];
+            let pubStarAS = $("<img>").attr("src", "images/zodiac_style_as.png").addClass("star"); 
+            return [pubStarAS, pubStarAS.clone(), pubStarAS.clone(), pubStarAS.clone(), pubStarAS.clone()];
+        } else if (isPUB && rarity == 5 && isES) {
+            let pubStarES = $("<img>").attr("src", "images/zodiac_style_ex.png").addClass("star"); 
+            return [pubStarES, pubStarES.clone(), pubStarES.clone(), pubStarES.clone(), pubStarES.clone()];
         } else if (isPUB && rarity == 5) {
-            let starPUB = $("<img>").attr("src", "images/zodiac_style.png").addClass("star"); 
-            return [starPUB, starPUB.clone(), starPUB.clone(), starPUB.clone(), starPUB.clone()];
+            let pubStar = $("<img>").attr("src", "images/zodiac_style.png").addClass("star"); 
+            return [pubStar, pubStar.clone(), pubStar.clone(), pubStar.clone(), pubStar.clone()];
         } else if (isAS) {
             let starAS = $("<img>").attr("src", "images/style.png").addClass("star");
             return [starAS, starAS.clone(), starAS.clone(), starAS.clone(), starAS.clone()];
