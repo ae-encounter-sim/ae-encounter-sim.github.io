@@ -200,10 +200,10 @@
   <script type="text/javascript" src="js/binarysearch.js"></script>
   <script>
     function createStars(rarity, maxRarity, isAS, isES, isPUB) {
-        if (isPUB && rarity == 5 && isAS) {
+        if (isPUB && isAS) {
             let pubStarAS = $("<img>").attr("src", "images/zodiac_style_as.png").addClass("star"); 
             return [pubStarAS, pubStarAS.clone(), pubStarAS.clone(), pubStarAS.clone(), pubStarAS.clone()];
-        } else if (isPUB && rarity == 5 && isES) {
+        } else if (isPUB && isES) {
             let pubStarES = $("<img>").attr("src", "images/zodiac_style_ex.png").addClass("star"); 
             return [pubStarES, pubStarES.clone(), pubStarES.clone(), pubStarES.clone(), pubStarES.clone()];
         } else if (isPUB && rarity == 5) {
