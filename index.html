@@ -8,7 +8,7 @@
   <title>Another Eden Encounter Simulator</title>
   <link rel="stylesheet" href="css/vendor/bootswatch-litera-4.4.1/bootstrap.min.css">
   <link rel="stylesheet" href="css/vendor/fontawesome-pro-5.14.0-web/css/all.min.css">
-  <link rel="stylesheet" href="css/encounter-sim.css?v=kOfLgqgY5G">
+  <link rel="stylesheet" href="css/encounter-sim.css?v=pdtCvO6ODm">
   
   <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -303,6 +303,15 @@
         let bannerClass = [banner["banner_short_name"], "banner-select", "d-block", "mx-auto"];
         return $("<div></div>").addClass("col py-1").append($("<a></a>").addClass(bannerClass).attr({ "href" : "#", "data-banner-file" : banner["banner_file"], "data-banner-img" : banner["banner_image"], "data-toggle" : "collapse", "data-target" : "#encounter-info", "data-banner-official" : banner["official_link"], "data-banner-name" : banner["name"] }));
     }
+    function getTimeRemaining(endDateTime) {
+        let currentTimeMs = Date.now();
+        let endDT = new Date(endDateTime);
+        if (Math.floor((endDT.getTime() - currentTimeMs) / (1000*60*60*24)) == 0) {
+          return String(Math.floor((endDT.getTime() - currentTimeMs) / (1000*60*60))) + " H Left"; //hours
+        } else {
+          return String(Math.floor((endDT.getTime() - currentTimeMs) / (1000*60*60*24))) + " D Left"; //days
+        }
+    }
     function calculateProbabilityOneOrMore(loneRate, lonePulls, tenthRate, tenthPulls) {
         // 1 - (1 - loneRate)^lonePulls * (1 - tenthRate)^tenthPulls
         return 1 - (Math.pow(1 - loneRate, lonePulls) * Math.pow(1 - tenthRate, tenthPulls));
@@ -456,7 +465,7 @@
 
         $('[data-toggle="tooltip"]').tooltip();
 
-        $.getJSON("character_images.json?v=kOfLgqgY5G", function(images) {
+        $.getJSON("character_images.json?v=pdtCvO6ODm", function(images) {
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Loading character image map...")).toast("show"));
             charImages = images;
             $("#container").trigger("imageMapLoaded");
@@ -466,7 +475,7 @@
             $("#loading-images").append($("<div></div>").addClass("toast").attr({"role" : "alert", "data-delay" : 1000}).append($("<div></div>").addClass("toast-body").text("Character image map load complete!")).toast("show"));
         });
 
-        $.getJSON("encounter_banners.json?v=kOfLgqgY5G", function(bannerList) {
+        $.getJSON("encounter_banners.json?v=pdtCvO6ODm", function(bannerList) {
             if ("future" in bannerList) {
               $("#banner-options").append($("<div></div>").addClass("col-12 py-1").append($("<h4></h4>").text("Future")));
               $.each(bannerList["future"], function(i, banner) {
