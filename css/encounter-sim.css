@@ -599,3 +599,12 @@ a.banner-select.spring-fest-2024-se3 {
 a.banner-select:hover {
   background-position: 0 -7.625rem;
 }
+a.banner-select>span {
+  position: absolute;
+  top: 0.24rem;
+  right: 0.15rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  width: 5rem;
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.8);
+}
