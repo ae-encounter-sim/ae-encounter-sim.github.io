@@ -242,18 +242,11 @@ def process_images(new_banner, img_path, img_prefix, base_path):
             else:
                 new_img_name = img_prefix + '-7DE' + datetime.now().strftime('%B%Y') + '.png'
             os.rename(img, new_img_name) #rename to standard convention
-            copy_string = f'copy {new_img_name} {banner_img_folder}'
-            os.popen(copy_string) #move banner art original to images/banners/ folder
             subprocess.run(['magick','mogrify','-crop','1060x720+60+0',new_img_name]) #crop banner art
             tinify.key = apikeys.tinify_api_key
             dest = os.path.join(banner_img_folder, new_banner['banner_image'])
             source = tinify.from_file(new_img_name) #shrink and move to final dest
             source.to_file(dest)
-        else:
-            rename_img = img.replace(img_prefix, img_prefix + '.' + shorter_name)
-            dest = os.path.join(banner_img_folder, rename_img)
-            copy_string = f'copy {img} {dest}'
-            os.popen(copy_string)
 
     combo_img = None
     if not new_banner['banner_short_name'] == 'fateful-seven-days':
