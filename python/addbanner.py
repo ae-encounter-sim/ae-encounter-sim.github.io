@@ -77,7 +77,7 @@ def parse_title(text):
     """
     Remove special characters and return title for file naming
     """
-    remove_list = ['3 Times Max ','1 Time Only ', '2 Times Max ', '\'', '"', '<', '>', ':', '/', '[', ']']
+    remove_list = ['3 Times Max ','1 Time Only ', '2 Times Max ', '\'', '"', '<', '>', ':', '/', '[', ']', '\u00f6']
     for rm_str in remove_list:
         text = text.replace(rm_str, '')
     if 'Seven Days Encounter' in text:
